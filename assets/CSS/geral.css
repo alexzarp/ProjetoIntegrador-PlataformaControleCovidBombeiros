@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    color: gray;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=tel],
+input[type=date], textarea, select, input[type=submit], input[type=reset] {
+    background-color: #C4C4C4;
+    padding: 10px;
+    margin: 5px;
+    border: 30px;
+    border-radius: 8px;
+}
