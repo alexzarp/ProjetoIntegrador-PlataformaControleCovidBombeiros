@@ -18,7 +18,7 @@
         <main>
             <img id="logo" src="../../assets/images/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png" alt="Logo BOmbeiros SC">
             
-            <div>
+            <div id="div_central">
             <!--Aqui vai o conteúdo dinâmico-->
                 <?php
                     include_once ("../pretestagem.php");
