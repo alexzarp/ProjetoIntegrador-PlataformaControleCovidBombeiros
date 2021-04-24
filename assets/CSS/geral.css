@@ -52,5 +52,15 @@ main {
 #div_central {
     padding: 2% 1% 2% 1%;
 }
+@media (max-width: 700px){
+
+    main{
+        display: block;
+    }
+    main img{
+        display: none;
+    }
+    
+}
 
 
