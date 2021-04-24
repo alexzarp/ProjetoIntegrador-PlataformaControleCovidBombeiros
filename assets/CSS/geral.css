@@ -20,6 +20,10 @@ input[type=date], textarea, select, input[type=submit], input[type=reset] {
     border-radius: 8px;
 }
 
+::placeholder {
+    color: gray;
+}
+
 body {
     background-color: #BABAB5;
 }
@@ -37,3 +41,5 @@ main {
 #div_central {
     padding: 2% 1% 2% 1%;
 }
+
+
