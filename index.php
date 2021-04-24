@@ -17,6 +17,7 @@
 
 <body>
     <main>
+        <div></div> <!-- Gambiarra? -->
         <div class="login">
             <h1>Login de usuário</h1>
             <img src="assets/images/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png" alt="Logo BOmbeiros SC">

@@ -14,8 +14,8 @@ a {
 input[type=text], input[type=email], input[type=password], input[type=tel],
 input[type=date], textarea, select, input[type=submit], input[type=reset] {
     background-color: #C4C4C4;
-    padding: 10px;
-    margin: 5px;
+    padding: 20px;
+    margin: 15px 5px 15px 5px;
     border: 30px;
     border-radius: 8px;
 }
