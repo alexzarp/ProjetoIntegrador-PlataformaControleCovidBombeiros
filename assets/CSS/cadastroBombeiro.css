@@ -1,0 +1,10 @@
+#matricula, #re_senha {
+    width: -webkit-fill-available;
+}
+
+#submeter {
+    width: -webkit-fill-available;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
