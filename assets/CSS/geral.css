@@ -24,6 +24,16 @@ input[type=date], textarea, select, input[type=submit], input[type=reset] {
     width: -webkit-fill-available;
 }
 
+input[type=submit] {
+    width: -webkit-fill-available;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+::placeholder {
+    color: gray;
+}
+
 body {
     background-color: #BABAB5;
 }
@@ -51,3 +61,5 @@ main {
     }
     
 }
+
+
