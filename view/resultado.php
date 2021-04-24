@@ -1,20 +1,18 @@
 <div class="resultadoTestagem">
     <h1>Cadastro do resultado da testagem</h1>    
-    <form>
+    <form id="form">
         <div>
             <label for="id_nome">Nome:</label>
             <input type="text" id="nome" name="nome"  
             placeholder="Nome">
         </div>
         <br>
-        <div>
-            <div id=testeR>
-                <input type="submit" value="Positivo" id="resultado">
-            </div>
-            <div>
-                <input type="submit" value="Negativo" id="resultado">
-            </div>
+        <div id=testeR>
+            <label>Resultado do teste:</label><br>
+                <label><input type="radio" name="resultado" value="" id="radio">Positivo</label>
+                <label><input type="radio" name="resultado" value=""id="radio">Negativo</label>
         </div>
+        <br>
         <div>
             <label for="id_data">Data do teste:</label>
             <input type="date" id="data" name="data" placeholder="Data do teste">

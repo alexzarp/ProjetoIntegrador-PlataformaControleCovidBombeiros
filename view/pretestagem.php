@@ -1,6 +1,6 @@
 <div class="preTestagem">
     <h1>Pré - Testagem</h1>    
-    <form>
+    <form id="form">
         <div>
             <label for="id_nome">Nome:</label>
             <input type="text" id="nome" name="nome"  

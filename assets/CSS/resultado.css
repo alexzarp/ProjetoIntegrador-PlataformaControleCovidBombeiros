@@ -1,5 +1,12 @@
 #testeR{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 20% 20%;
+    margin: 5px;
    
+}
+#radio{
+   margin-top: 15px;
+}
+#form {
+    margin-top: 5%;
 }
