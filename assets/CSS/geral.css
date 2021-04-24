@@ -51,6 +51,7 @@ main {
 #div_central {
     padding: 2% 1% 2% 1%;
 }
+
 @media (max-width: 700px){
 
     main{
@@ -58,6 +59,10 @@ main {
     }
     main img{
         display: none;
+    }
+    input[type=submit] {
+        margin-left: 10%;
+        margin-right: 10%;
     }
     
 }

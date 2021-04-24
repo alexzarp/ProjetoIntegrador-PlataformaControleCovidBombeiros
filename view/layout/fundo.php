@@ -22,7 +22,7 @@
             <div id="div_central">
             <!--Aqui vai o conteúdo dinâmico-->
                 <?php
-                    include_once ("../cadastroBombeiro.php");
+                    include_once ("../pretestagem.php");
                 ?>
             </div>
 
