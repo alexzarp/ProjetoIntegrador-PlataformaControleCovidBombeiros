@@ -10,6 +10,9 @@
 a {
     color: gray;
 }
+h1{
+    text-align: center;
+}
 
 input[type=text], input[type=email], input[type=password], input[type=tel],
 input[type=date], textarea, select, input[type=submit], input[type=reset] {
@@ -18,6 +21,7 @@ input[type=date], textarea, select, input[type=submit], input[type=reset] {
     margin: 15px 5px 15px 5px;
     border: 30px;
     border-radius: 8px;
+    width: -webkit-fill-available;
 }
 
 body {

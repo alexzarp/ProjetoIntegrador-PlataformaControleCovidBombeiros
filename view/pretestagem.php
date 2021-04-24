@@ -1,5 +1,5 @@
 <div class="preTestagem">
-    <h1>Pré-Testagem</h1>    
+    <h1>Pré - Testagem</h1>    
     <form>
         <div>
             <label for="id_nome">Nome:</label>
@@ -24,8 +24,4 @@
         
     </form>
 
-    <div>
-        <a href="">Fazer cadastro</a>
-        <a href="">Recuperar senha</a>
-    </div>
 </div>
