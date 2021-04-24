@@ -1,3 +1,4 @@
+/* O fundo é configurado por aqui pois é um elemento geral */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 * {
     padding: 0;
@@ -21,4 +22,14 @@ input[type=date], textarea, select, input[type=submit], input[type=reset] {
 
 body {
     background-color: #BABAB5;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+}
+
+#logo {
+    width: 90%;
+    padding: 5% 5% 0 5%;
 }
