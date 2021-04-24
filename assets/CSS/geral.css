@@ -10,7 +10,8 @@
 a {
     color: gray;
 }
-h1{
+
+h1 {
     text-align: center;
 }
 
@@ -24,14 +25,14 @@ input[type=date], textarea, select, input[type=submit], input[type=reset] {
     width: -webkit-fill-available;
 }
 
-input[type=submit] {
-    width: -webkit-fill-available;
-    margin-left: 30%;
-    margin-right: 30%;
+select:focus {
+    background-color: #C4C4C4;
+    border-radius: 8px;
 }
 
-::placeholder {
-    color: gray;
+input[type=submit] {
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 body {
