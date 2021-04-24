@@ -2,9 +2,16 @@
     width: -webkit-fill-available;
 }*/
 
-#submeter {
-    width: -webkit-fill-available;
-    margin-left: 30%;
-    margin-right: 30%;
+
+form{
+    margin-top: 5%;
+}
+#radio{
+    margin: 5px;
+}
+#dataV{
+    display: grid;
+    grid-template-columns: 50% 50%;
+   
 }
 
