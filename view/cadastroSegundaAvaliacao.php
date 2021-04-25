@@ -34,19 +34,3 @@
         <input type="submit" value="Cadastrar segunda avaliação">
     </form>
 </div>
-
-<!-- <p>Please select your age:</p>
-  <input type="radio" id="age1" name="age" value="30">
-  <label for="age1">0 - 30</label><br>
-  <input type="radio" id="age2" name="age" value="60">
-  <label for="age2">31 - 60</label><br>  
-  <input type="radio" id="age3" name="age" value="100">
-  <label for="age3">61 - 100</label><br><br>
-  <input type="submit" value="Submit"> -->
-
-<!-- O segundo valor estará selecionado inicialmente -->
-<!-- <select name="select">
-  <option value="valor1">Valor 1</option>
-  <option value="valor2" selected>Valor 2</option>
-  <option value="valor3">Valor 3</option>
-</select> -->

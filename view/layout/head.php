@@ -18,22 +18,3 @@
     </head>
 
     <body>
-        <main>
-            <img id="logo" src="../../assets/images/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png" alt="Logo BOmbeiros SC">
-            
-            <div id="div_central">
-            <!--Aqui vai o conteúdo dinâmico-->
-                <?php // Não conseguimos fazer o controlador de telas ainda, então verifique o resultado desta forma :)
-                    //include_once ("../acompanhamento.php");
-                    //include_once ("../cadastroBombeiro.php");
-                    //include_once ("../cadastroSegundaAvaliacao.php");
-                    include_once ("../painelAdministrativo.php");
-                    //include_once ("../pretestagem.php");
-                    //include_once ("../resultado.php");
-                ?>
-            </div>
-
-            <!--Este espaço ficará vazio na em modo coluna 15 70 15-->
-        </main>
-    </body>
-</html>

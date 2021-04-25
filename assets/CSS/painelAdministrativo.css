@@ -1,0 +1,19 @@
+.span {
+    background-color: #C4C4C4;
+    padding: 20px;
+    margin: 15px 5px 15px 5px;
+    border: 30px;
+    border-radius: 8px;
+    width: -webkit-fill-available;
+    text-align: center;
+}
+
+.grid_painel {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+div .span:hover {
+    background-color: rgb(114, 114, 114);
+    transition: 0.6s;
+}
