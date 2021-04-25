@@ -1,10 +1,14 @@
 <div class="preTestagem">
     <h1>Pré - Testagem</h1>    
     <form id="form">
-        <div>
-            <label for="id_nome">Nome:</label>
-            <input type="text" id="nome" name="nome"  
-            placeholder="Nome">
+    <div>
+            <select name="bombeiro" id="bombeiro">
+                <option value="opcao" selected>Nome - 
+                    Cadastro do bombeiro já deve constar no sistema</option>
+                <?php foreach ($bombeiros_cadastrados as $opcao) 
+                    echo "<option value=".$opcao.">"
+                ?>
+            </select> 
         </div>
         <br>
         <div>
@@ -13,8 +17,7 @@
         </div>
         <br>
         <div>
-            <label for="id_sintomas">Descreva seus sintomas:</label>
-            <textarea id="sintomas"></textarea>
+            <textarea id="texto" placeholder="Descreva seus sintomas:"></textarea>
         </div>
         <br>
         <div>
