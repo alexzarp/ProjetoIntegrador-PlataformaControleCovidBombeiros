@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="../../assets/CSS/login.css">
         <link rel="stylesheet" href="../../assets/CSS/pretestagem.css">
         <link rel="stylesheet" href="../../assets/CSS/cadastroBombeiro.css">
-        <link rel="stylesheet" href="../../assets/CSS/resultado.css">
+        <link rel="stylesheet" href="../../assets/CSS/cadastroSegundaAvaliacao.css">
         <!--Todos os css vão precisar se linkados aqui, todos!-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     </head>
@@ -23,7 +23,9 @@
             <div id="div_central">
             <!--Aqui vai o conteúdo dinâmico-->
                 <?php
-                    include_once ("../resultado.php");
+                    include_once ("../cadastroSegundaAvaliacao.php");
+
+                    
                 ?>
             </div>
 
