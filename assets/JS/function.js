@@ -1,3 +1,4 @@
+
 function validateForm(){
     var nome = document.getElementById("nome").value;
     var email = document.getElementById("email").value;
@@ -13,11 +14,12 @@ function validateForm(){
         alert("O email deve ser preenchido");
         return false;
     }
+    
     if (matricula == null || matricula == "" || matricula.indexOf(" ") == -1){
-        alert("A matricula deve ser preenchida corretamente");
+        alert("A matricula deve ser preenchida");
         return false;
     }
-  
+    
     if(senha != "" && confirma_senha != "" && senha === confirma_senha){
         return true;
     }
