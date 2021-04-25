@@ -1,0 +1,10 @@
+#grid_cad {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#sim_nao {
+    padding: 20px;
+    margin: 7px 5px 15px 5px;
+    border: 30px;
+}
