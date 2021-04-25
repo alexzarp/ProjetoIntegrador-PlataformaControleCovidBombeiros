@@ -1,7 +1,7 @@
 <div>
     <h1>Cadastro de segunda avaliação</h1>
 
-    <form>
+    <form onsubmit="return validateForm3()" method="POST">
         <select name="bombeiro" id="name">
             <option value="opcao" selected>Nome - Cadastro do bombeiro já deve constar no sistema<option>
             <?php foreach ($bombeiros_cadastrados as $opcao) 
@@ -27,7 +27,9 @@
             </div>
             
             <div>
-                <input type="date">
+                <p>Data do retorno</p>
+                <input type="date" id="data">
+                
             </div>
         </div>
  

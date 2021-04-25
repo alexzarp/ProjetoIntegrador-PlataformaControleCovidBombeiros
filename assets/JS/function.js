@@ -49,3 +49,12 @@ function validateForm2(){
         return false;
     }
 }
+
+function validateForm3(){
+    var sintomas = document.getElementById("sintomas").value;
+    var data = document.getElementById("data").value;
+    if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){
+        alert("Os sintomas devem ser preenchidos");
+        return false;
+    }
+}

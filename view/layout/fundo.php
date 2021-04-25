@@ -26,10 +26,10 @@
                 <?php // Não conseguimos fazer o controlador de telas ainda, então verifique o resultado desta forma :)
                     //include_once ("../acompanhamento.php");
                     //include_once ("../cadastroBombeiro.php");
-                    //include_once ("../cadastroSegundaAvaliacao.php");
+                    include_once ("../cadastroSegundaAvaliacao.php");
                     //include_once ("../painelAdministrativo.php");
                     //include_once ("../pretestagem.php");
-                    include_once ("../resultado.php");
+                    //include_once ("../resultado.php");
                 ?>
             </div>
 
