@@ -1,8 +1,8 @@
 <div class="acompanhamento">
     <h1>Acompanhamento dos sintomas e evolução</h1>    
-    <form id="form">
+    <form id="form" onsubmit="return validateForm2()" method="POST">
         <div>
-            <select name="bombeiro" id="bombeiro">
+            <select name="bombeiro" id="nome">
                 <option value="opcao" selected>Nome - 
                     Cadastro do bombeiro já deve constar no sistema</option>
                 <?php foreach ($bombeiros_cadastrados as $opcao) 
@@ -13,7 +13,7 @@
         <br>
         <div>
             <label for="id_data">Data de início dos sintomas:</label>
-            <input type="date" id="data" name="data" placeholder="Data de início dos sintomas">
+            <input type="date" id="data" name="data" placeholder="Data de início dos sintomas" required>
         </div>
         <br>
         <div>

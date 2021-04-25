@@ -2,7 +2,7 @@
     <h1>Cadastro de segunda avaliação</h1>
 
     <form>
-        <select name="bombeiro" id="bombeiro">
+        <select name="bombeiro" id="name">
             <option value="opcao" selected>Nome - Cadastro do bombeiro já deve constar no sistema<option>
             <?php foreach ($bombeiros_cadastrados as $opcao) 
                 echo "<option value=".$opcao.">"

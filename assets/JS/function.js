@@ -2,7 +2,9 @@
 function validateForm(){
     var nome = document.getElementById("nome").value;
     var email = document.getElementById("email").value;
+    var sintomas = document.getElementById("sintomas").value;
     var matricula = document.getElementById("matricula").value;
+    var data = document.getElementById("data").value;
     var senha = document.getElementById("senha").value;
     var confirma_senha = document.getElementById("re_senha").value;
     
@@ -12,6 +14,14 @@ function validateForm(){
     }
     if (email == null || email == "" || email.indexOf("@") == -1){
         alert("O email deve ser preenchido");
+        return false;
+    }
+    if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){
+        alert("Os sintomas devem ser preenchidos");
+        return false;
+    }
+    if (data == null || data == "" || data.indexOf(" ") == -1){
+        alert("A data deve ser prenchida");
         return false;
     }
     
@@ -29,4 +39,13 @@ function validateForm(){
     }
         
     
+}
+
+function validateForm2(){
+    var sintomas = document.getElementById("sintomas").value;
+    var data = document.getElementById("data").value;
+    if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){
+        alert("Os sintomas devem ser preenchidos");
+        return false;
+    }
 }
