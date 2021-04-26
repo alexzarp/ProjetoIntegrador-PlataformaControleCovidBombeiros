@@ -42,19 +42,100 @@ function validateForm(){
 }
 
 function validateForm2(){
+    var nome = document.getElementById("nome").value;
     var sintomas = document.getElementById("sintomas").value;
     var data = document.getElementById("data").value;
     if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){
         alert("Os sintomas devem ser preenchidos");
+        return false;
+    }
+    if (nome == null || nome == "" || nome.indexOf(" ") == -1){
+        alert("O nome completo deve ser preenchido");
         return false;
     }
 }
 
 function validateForm3(){
+    var nome = document.getElementById("nome").value;
     var sintomas = document.getElementById("sintomas").value;
-    var data = document.getElementById("data").value;
+    var radio = document.getElementsByName("retorno");
+    escolhe = -1;
+    for (var i = radio.length -1; i > -1; i--) {
+        if (radio[i].checked) {
+            escolhe = i;
+        }
+    }
+    if(escolhe==-1){
+        alert("Por favor escolha uma opção");
+        return false;
+    }
     if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){
         alert("Os sintomas devem ser preenchidos");
         return false;
+        
     }
+    if (nome == null || nome == "" || nome.indexOf(" ") == -1){
+        alert("O nome completo deve ser preenchido");
+        return false;
+    }
+
+
+
+}
+function validateForm4(){
+    //var nome = document.getElementById("name").value;
+    var radio = document.getElementsByName("resultado");
+    var tipo = document.getElementsByName("teste");
+    escolhe = -1;
+    for (var i = radio.length -1; i > -1; i--) {
+        if (radio[i].checked) {
+            escolhe = i;
+        }
+    }
+    if(escolhe==-1){
+        alert("Por favor escolha uma opção");
+        return false;
+    }
+    if (tipo.value == " " || tipo.value == "Selecione"){
+        alert("Escolha uma opção.");
+        return false;
+    }
+}
+
+function validateForm5(){
+    var nome = document.getElementById("nome").value;
+    var sintomas = document.getElementById("sintomas").value;
+    var radio = document.getElementsByName("vacina");
+    var tipo = document.getElementsByName("tipo");
+    var tipo2 = document.getElementsByName("idade");
+    escolhe = -1;
+    for (var i = radio.length -1; i > -1; i--) {
+        if (radio[i].checked) {
+            escolhe = i;
+        }
+    }
+    if(escolhe==-1){
+        alert("Por favor escolha uma opção");
+        return false;
+    }
+    if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){
+        alert("Os sintomas devem ser preenchidos");
+        return false;
+        
+    }
+    if (nome == null || nome == ""){
+        alert("O nome completo deve ser preenchido");
+        return false;
+    }
+    if (tipo.value == " " || tipo.value == "Selecione"){
+        alert("Escolha uma opção.");
+        return false;
+    }
+    if (tipo2.value == " " || tipo2.value == "Selecione"){
+        alert("Escolha uma opção.");
+        return false;
+    }
+
+
+
 }

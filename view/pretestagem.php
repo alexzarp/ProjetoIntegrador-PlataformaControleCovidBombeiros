@@ -1,8 +1,8 @@
 <div class="preTestagem">
     <h1>Pré - Testagem</h1>    
-    <form id="form">
+    <form id="form" onsubmit="return validateForm5()" method="POST">
     <div>
-            <select name="bombeiro" id="bombeiro">
+            <select name="bombeiro" id="nome">
                 <option value="opcao" selected>Nome - 
                     Cadastro do bombeiro já deve constar no sistema</option>
                 <?php foreach ($bombeiros_cadastrados as $opcao) 
@@ -13,11 +13,11 @@
         <br>
         <div>
             <label for="id_data">Data de início dos sintomas:</label>
-            <input type="date" id="data" name="data" placeholder="Data de início dos sintomas">
+            <input type="date" id="data" name="data" placeholder="Data de início dos sintomas" required>
         </div>
         <br>
         <div>
-            <textarea id="texto" placeholder="Descreva seus sintomas:"></textarea>
+            <textarea id="sintomas" placeholder="Descreva seus sintomas:"></textarea>
         </div>
         <br>
         <div>
@@ -29,7 +29,7 @@
         <br>
         <div>
             <label for="tipoV">Vacina:</label>
-            <select id="tipoV" name="TipoVacina">
+            <select id="tipo" name="tipo">
                 <option>Selecione</option>
                 <option>CORONAVAC - Instituto Butantan</option>
                 <option>OXFORD - AstraZeneca</option>
