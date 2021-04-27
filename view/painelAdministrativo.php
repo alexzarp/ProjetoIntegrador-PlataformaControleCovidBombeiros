@@ -2,13 +2,37 @@
     <h1>Sistema de testagem para a Covid-19 - Administrador</h1>
 
     <div class="grid_painel">
-        <span class="span" onClick="location.href='../cadastroBombeiro.php'">Fazer cadastro de Bombeiro</span>
-        <span class="span">Busca por registro de sintomas</span>
-        <span class="span">Fazer cadastro de resultado da testagem</span>
-        <span class="span">Cadastro de acompanhamento dos sintomas</span>
-        <span class="span">Fazer cadastro da segunda avaçiação</span>
-        <span class="span">Vizualizar gráfico de afastamento</span>
-        <span class="span">Vizualizar gráfico de testes realizados</span>
-        <span class="span">Vizualizar gráfico da situação dos militares</span>
+
+        <a href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
+            Fazer cadastro de Bombeiro
+        </a>
+
+        <a href="../class/controlers/controladorDeTelas.php?acao=acompanhamento" class="span">
+            Busca por registro de sintomas
+        </a>
+
+        <a href="../class/controlers/controladorDeTelas.php?acao=resultado" class="span">
+            Fazer cadastro de resultado da testagem
+        </a>
+
+        <a href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
+            Cadastro de acompanhamento dos sintomas
+        </a>
+
+        <a href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
+            Fazer cadastro da segunda avaçiação
+        </a>
+
+        <a href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
+            Vizualizar gráfico de afastamento
+        </a>
+
+        <a href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
+            Vizualizar gráfico de testes realizados
+        </a>
+
+        <a class="span" href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro">
+            Vizualizar gráfico da situação dos militares
+        </a>
     </div>
 </div>

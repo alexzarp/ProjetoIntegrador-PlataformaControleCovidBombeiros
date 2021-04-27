@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt=br">
+    <?php 
+        session_start();
+        $titulo = $_SESSION['titulo'];
+        $caminhoCSS = $_SESSION['caminhoCSS'];
+        $caminhoDeFundo = $_SESSION['caminhoDeFundo'];
+    ?>
     <head>
-        <!-- <title><?php $titulo?></title> Precisa ser dinâmico-->
+        <title><?php echo $titulo ?></title>
         <meta charset="utf-8">
         <meta name="author" content="Alex Sandro Zarpelon, Bruna Gabriela Disner">
         <meta name="description" content="Plataforma de controle Covid-19">
         <meta name="keywords" content="Bombeiros, SC, controle Covid-19, Bombeiros Chapecó">
         <link rel="shorcut icon" href="../../assets/images/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png">
         <link rel="stylesheet" href="../../assets/CSS/geral.css">
-        <link rel="stylesheet" href="../../assets/CSS/login.css">
-        <link rel="stylesheet" href="../../assets/CSS/pretestagem.css">
-        <link rel="stylesheet" href="../../assets/CSS/cadastroBombeiro.css">
-        <link rel="stylesheet" href="../../assets/CSS/cadastroSegundaAvaliacao.css">
-        <link rel="stylesheet" href="../../assets/CSS/painelAdministrativo.css">
-        <!--Todos os css vão precisar se linkados aqui, todos!-->
+        <link rel="stylesheet" href="<?php echo $caminhoCSS ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     </head>
 
@@ -22,14 +23,11 @@
             <img id="logo" src="../../assets/images/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png" alt="Logo BOmbeiros SC">
             
             <div id="div_central">
-            <!--Aqui vai o conteúdo dinâmico-->
-                <?php // Não conseguimos fazer o controlador de telas ainda, então verifique o resultado desta forma :)
-                    //include_once ("../acompanhamento.php");
-                    //include_once ("../cadastroBombeiro.php");
-                    //include_once ("../cadastroSegundaAvaliacao.php");
-                    //include_once ("../painelAdministrativo.php");
-                    include_once ("../pretestagem.php");
-                    //include_once ("../resultado.php");
+                <?php 
+                    if (isset($caminhoDeFundo))
+                        include_once($caminhoDeFundo);
+                    else
+                        include_once ('../../class/controlers/controladorDeTelas.php');
                 ?>
             </div>
 
