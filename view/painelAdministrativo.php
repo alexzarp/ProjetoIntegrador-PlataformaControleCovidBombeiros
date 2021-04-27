@@ -3,35 +3,35 @@
 
     <div class="grid_painel">
 
-        <a href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
+        <a href="controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
             Fazer cadastro de Bombeiro
         </a>
 
-        <a href="../class/controlers/controladorDeTelas.php?acao=acompanhamento" class="span">
+        <a href="controladorDeTelas.php?acao=acompanhamento" class="span">
             Busca por registro de sintomas
         </a>
 
-        <a href="../class/controlers/controladorDeTelas.php?acao=resultado" class="span">
+        <a href="controladorDeTelas.php?acao=resultado" class="span">
             Fazer cadastro de resultado da testagem
         </a>
 
-        <a href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
+        <a href="controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
             Cadastro de acompanhamento dos sintomas
         </a>
 
-        <a href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
+        <a href="controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
             Fazer cadastro da segunda avaçiação
         </a>
 
-        <a href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
+        <a href="controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
             Vizualizar gráfico de afastamento
         </a>
 
-        <a href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
+        <a href="controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
             Vizualizar gráfico de testes realizados
         </a>
 
-        <a class="span" href="../class/controlers/controladorDeTelas.php?acao=cadastro_bombeiro">
+        <a class="span" href="controladorDeTelas.php?acao=cadastro_bombeiro">
             Vizualizar gráfico da situação dos militares
         </a>
     </div>

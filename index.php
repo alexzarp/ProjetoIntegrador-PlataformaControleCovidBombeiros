@@ -22,7 +22,7 @@
             <h1>Login de usuário</h1>
             <img src="assets/images/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png" alt="Logo BOmbeiros SC">
             
-            <form>
+            <form action="controladorDeTelas.php">
                 <input type="email" id="email" name="email" placeholder="E-mail"><br>
                 <input type="password" id="senha" name="senha" placeholder="Senha"><br>
                 <input type="submit" value="Acesso" id="submeter"><br>
