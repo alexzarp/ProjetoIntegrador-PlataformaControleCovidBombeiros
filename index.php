@@ -29,8 +29,8 @@
             </form>
 
             <div>
-                <a href="">Fazer cadastro</a>
-                <a href="">Recuperar senha</a>
+                <a href="controladorDeTelas.php?acao=cadastro_bombeiro">Fazer cadastro</a>
+                <a href="controladorDeTelas.php?acao=re_senha">Recuperar senha</a>
             </div>
         </div>
     </main>
