@@ -51,6 +51,13 @@ else {
             $_SESSION['caminhoDeFundo'] = 'view/recuperaSenha.php';
             include ('view/layout/fundo.php');
         break;
+
+        case 'registro_sintomas':
+            $_SESSION['titulo'] = 'Registro de sintomas';
+            $_SESSION['caminhoCSS'] = 'assets/CSS/registroSintomas.css';
+            $_SESSION['caminhoDeFundo'] = 'view/registroSintomas.php';
+            include ('view/layout/fundo.php');
+        break;
     }
 }
 

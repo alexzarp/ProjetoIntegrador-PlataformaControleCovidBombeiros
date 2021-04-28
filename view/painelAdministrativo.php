@@ -8,6 +8,10 @@
         </a>
 
         <a href="controladorDeTelas.php?acao=acompanhamento" class="span">
+            Acompanhamento do militar
+        </a>
+
+        <a href="controladorDeTelas.php?acao=registro_sintomas" class="span">
             Busca por registro de sintomas
         </a>
 
