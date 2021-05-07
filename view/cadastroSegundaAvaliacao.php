@@ -36,3 +36,4 @@
         <input type="submit" value="Cadastrar segunda avaliação">
     </form>
 </div>
+<script src="assets/JS/function.js"></script>

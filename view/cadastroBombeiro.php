@@ -11,3 +11,4 @@
         <input type="submit" value="Submeter cadastro" id="submeter">
     </form>
 </div>
+<script src="assets/JS/function.js"></script>

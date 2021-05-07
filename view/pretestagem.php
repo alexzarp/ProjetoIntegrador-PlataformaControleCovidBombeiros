@@ -65,3 +65,4 @@
     </form>
 
 </div>
+<script src="assets/JS/function.js"></script>

@@ -9,7 +9,7 @@ function validateForm(){
     var confirma_senha = document.getElementById("re_senha").value;
     
     if (nome == null || nome == "" || nome.indexOf(" ") == -1){
-        alert("O nome completo deve ser preenchido");
+        alert("Por favor preencha o seu nome completo");
         return false;
     }
     if (email == null || email == "" || email.indexOf("@") == -1){
