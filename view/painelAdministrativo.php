@@ -23,7 +23,7 @@
             Cadastro de acompanhamento dos sintomas
         </a>
 
-        <a href="controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
+        <a href="controladorDeTelas.php?acao=cadastro_segunda_avaliacao" class="span">
             Fazer cadastro da segunda avaçiação
         </a>
 
