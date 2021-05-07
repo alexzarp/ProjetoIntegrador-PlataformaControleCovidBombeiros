@@ -114,10 +114,16 @@ function validateForm5(){
             escolhe = i;
         }
     }
-    if(escolhe==-1){
-        alert("Por favor escolha uma opção");
+    // if(escolhe==-1){
+    //     alert("Por favor escolha uma opção");
+    //     return false;
+    // }
+    if(form.bombeiro.selectedIndex==0 || escolhe == -1){
+        alert("Selecione um bombeiro!");
+        form.st_contrato.focus();
         return false;
     }
+
     if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){
         alert("Os sintomas devem ser preenchidos");
         return false;
