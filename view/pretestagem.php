@@ -2,7 +2,7 @@
     <h1>Pré - Testagem</h1>    
     <form id="form" onsubmit="return validateForm5()" method="POST">
     <div>
-            <select name="bombeiro" id="nome">
+            <select name="bombeiro" id="nome" required>
                 <option value="opcao" selected>Nome - 
                     Cadastro do bombeiro já deve constar no sistema</option>
                 <?php foreach ($bombeiros_cadastrados as $opcao) 
@@ -52,12 +52,12 @@
             <label for="idade">Faixa-etária:</label>
             <select id="idade" name="idade">
                 <option>Selecione</option>
-                <option>20 - 30 anos</option>
-                <option>30 - 40 anos</option>
-                <option>40 - 50 anos</option>
-                <option>50 - 60 anos</option>
-                <option>60 - 70 anos</option>
-                <option>70 - 80 anos</option>
+                <option>20 - 29 anos</option>
+                <option>30 - 39 anos</option>
+                <option>40 - 49 anos</option>
+                <option>50 - 59 anos</option>
+                <option>60 - 69 anos</option>
+                <option>70 - 79 anos</option>
             </select>
         </div>  
         <input type="submit" value="Submeter Pré-testagem " id="submeter">
