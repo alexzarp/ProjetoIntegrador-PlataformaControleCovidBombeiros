@@ -3,11 +3,13 @@
     <form id="form" onsubmit="return validateForm5()" method="POST">
     <div>
             <select name="bombeiro" id="nome" required>
-                <option value="opcao" selected>Nome - 
+                <option value="opcao[0]" selected>Nome - 
                     Cadastro do bombeiro já deve constar no sistema</option>
                 <?php foreach ($bombeiros_cadastrados as $opcao) 
                     echo "<option value=".$opcao.">"
                 ?>
+
+                <option value="opcao[1]">AAAAA</option>
             </select> 
         </div>
         <br>

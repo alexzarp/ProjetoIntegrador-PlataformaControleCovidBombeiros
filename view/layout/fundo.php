@@ -20,9 +20,12 @@
 
     <body>
         <main>
-            <a href="controladorDeTelas.php?acao=adm_painel">
-                <img id="logo" title="<< Volta ao painel administrativo" src="assets/images/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png" alt="Logo BOmbeiros SC">
-            </a>
+            <div>
+                <a href="controladorDeTelas.php?acao=adm_painel">
+                    <img id="logo" title="<< Volta ao painel administrativo" src="assets/images/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png" alt="Logo BOmbeiros SC">
+                </a>
+            </div>
+            
             
             <div id="div_central">
                 <?php 

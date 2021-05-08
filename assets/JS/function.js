@@ -118,7 +118,7 @@ function validateForm5(){
     //     alert("Por favor escolha uma opção");
     //     return false;
     // }
-    if(form.bombeiro.selectedIndex==0 || escolhe == -1){
+    if(form.bombeiro.selectedIndex == 0 || escolhe == -1){
         alert("Selecione um bombeiro!");
         form.st_contrato.focus();
         return false;
@@ -127,7 +127,6 @@ function validateForm5(){
     if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){
         alert("Os sintomas devem ser preenchidos");
         return false;
-        
     }
     if (nome == null || nome == ""){
         alert("O nome completo deve ser preenchido");
