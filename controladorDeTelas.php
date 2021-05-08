@@ -1,11 +1,13 @@
 <?php 
 
 session_start();
-if (!isset($_GET['acao']) or $_GET['acao'] == 'adm_painel'){
+if (!isset($_SESSION['login'])){
+    header("Location: index.php?acao=recusado");
+}
+elseif (!isset($_GET['acao']) or $_GET['acao'] == 'adm_painel'){
     $_SESSION['titulo'] = 'Página do Administrador';
     $_SESSION['caminhoCSS'] = 'assets/CSS/painelAdministrativo.css';
     $_SESSION['caminhoDeFundo'] = 'view/painelAdministrativo.php';
-    //$_SESSION['caminhoDeFundo'] = 'view/telaUsuario.php';
     include ("view/layout/fundo.php");
 }
 else {
