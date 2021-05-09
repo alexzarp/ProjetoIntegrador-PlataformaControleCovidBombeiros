@@ -1,6 +1,6 @@
 <?php
 
-    class Militar {
+    class Bombeiro {
 
         private $nome;
         private $matricula;

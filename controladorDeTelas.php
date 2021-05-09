@@ -1,8 +1,11 @@
 <?php 
+include ('class/bombeiroDAO.php');
 
 session_start();
 if (!isset($_SESSION['login'])){
-    header("Location: index.php?acao=recusado");
+    $login = login($_GET['email'],$_GET['senha']);
+
+    // header("Location: index.php?acao=recusado");
 }
 elseif (!isset($_GET['acao']) or $_GET['acao'] == 'adm_painel'){
     $_SESSION['titulo'] = 'Página do Administrador';

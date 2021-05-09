@@ -1,5 +1,3 @@
-<!-- O index é a tela de login -->
-<!-- Isso será mudado posteriormente -->
 <!DOCTYPE html>
 <html lang="pt-br">
 
