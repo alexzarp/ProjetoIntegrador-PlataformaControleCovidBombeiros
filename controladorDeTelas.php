@@ -31,6 +31,11 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/cadastroBombeiro.css';
             $_SESSION['caminhoDeFundo'] = 'view/cadastroBombeiro.php';
             include ("view/layout/fundo.php");
+
+            if (isset($_POST['email']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['re_senha'])) {
+                $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']));
+                echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+            }
         break;
 
         case 'acompanhamento':
