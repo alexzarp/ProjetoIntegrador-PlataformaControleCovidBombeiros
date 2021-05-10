@@ -1,22 +1,21 @@
 <?php 
 include ('class/bombeiroDAO.php');
-$b = new Bombeiro();
+$b = new BombeiroDAO();
 
 session_start();
-if (!isset($_SESSION['login'])){
-<<<<<<< HEAD
-    $login =  login($_GET['email'],$_GET['senha']);
 
-    // header("Location: index.php?acao=recusado");
-=======
-    $login = $b
-    if ($login == true) {
-        $_SESSION['login'] = $login;
+if (!isset($_SESSION['login'])){
+    if (isset($_POST['email']) && isset($_POST['senha'])) {
+        $login = $b->login($_POST['email'], md5($_POST['senha']));
+        if ($login == true) {
+            $_SESSION['login'] = $login;
+        } else {
+            header("Location: index.php?acao=recusado");
+        }
     } else {
         header("Location: index.php?acao=recusado");
     }
->>>>>>> 57537305fb88fb40013fc3a9ae0be7f51a844897
-}
+} 
 elseif (!isset($_GET['acao']) or $_GET['acao'] == 'adm_painel'){
     $_SESSION['titulo'] = 'Página do Administrador';
     $_SESSION['caminhoCSS'] = 'assets/CSS/painelAdministrativo.css';

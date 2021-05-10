@@ -27,18 +27,18 @@
                 $query = $this->conexao->prepare("SELECT email, senha FROM bombeiro WHERE email = :email");
                 $query->bindParam(":email", $email);
                 $query->execute();
-                $registro = $query->fetchAll(PDO::FETCH_CLASS, "Bombeiro");
-                // verificacao do e-mail / senha     
-                if($query->rowCount() == 1){ // email informado existe no BD
-                    if(!password_verify($senha, $registro[0]->getSenha())){
-                        return false; // senha incorreta
+                $registro = $query->fetchAll();
+                echo $senha;
+                if($query->rowCount() == 1){
+                    if ($senha == $registro[0]['senha']){
+                        return true;
                     }
-                    else{ // email e senha estão corretos
-                        return $registro[0];
+                    else{
+                        return false;
                     }
                 }       
                 else{
-                    return false; // nao encontrou email
+                    return false;
                 }     
             }
             catch(PDOException $e){
