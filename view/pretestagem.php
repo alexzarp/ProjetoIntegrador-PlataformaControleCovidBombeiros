@@ -1,6 +1,6 @@
 <div class="preTestagem">
     <h1>Pré - Testagem</h1>    
-    <form id="form" onsubmit="return validateForm5()" method="POST">
+    <form id="form" name="formp" onsubmit="return validateForm5()" method="POST">
     <div>
             <select name="bombeiro" id="nome" required>
                 <option value="opcao[0]" selected>Nome - 
@@ -19,7 +19,7 @@
         </div>
         <br>
         <div>
-            <textarea id="sintomas" placeholder="Descreva seus sintomas:"></textarea>
+            <textarea id="sintomas" name="sintomas" placeholder="Descreva seus sintomas:"></textarea>
         </div>
         <br>
         <div>
@@ -41,7 +41,7 @@
         <div id="dataV">
             <div>
                 <label for="id_data">Data da Primeira dose:</label>
-                <input type="date" id="data" name="data" placeholder="Data da Primeira dose:">
+                <input type="date" id="data" name="datap" placeholder="Data da Primeira dose:">
             </div>
             <div>
                 <label for="id_data">Data da Segunda dose:</label>

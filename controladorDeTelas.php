@@ -3,7 +3,7 @@ include ('class/bombeiroDAO.php');
 
 session_start();
 if (!isset($_SESSION['login'])){
-    $login = login($_GET['email'],$_GET['senha']);
+    $login =  login($_GET['email'],$_GET['senha']);
 
     // header("Location: index.php?acao=recusado");
 }

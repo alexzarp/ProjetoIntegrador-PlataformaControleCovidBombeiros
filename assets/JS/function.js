@@ -77,44 +77,14 @@ function validateForm4(){
 }
 
 function validateForm5(){
-    var nome = document.getElementById("nome").value;
-    var sintomas = document.getElementById("sintomas").value;
-    var radio = document.getElementsByName("vacina");
-    var tipo = document.getElementsByName("tipo");
-    var tipo2 = document.getElementsByName("idade");
-    escolhe = -1;
-    for (var i = radio.length -1; i > -1; i--) {
-        if (radio[i].checked) {
-            escolhe = i;
-        }
-    }
-    // if(escolhe==-1){
-    //     alert("Por favor escolha uma opção");
-    //     return false;
-    // }
-    if(form.bombeiro.selectedIndex == 0 || escolhe == -1){
-        alert("Selecione um bombeiro!");
-        form.st_contrato.focus();
-        return false;
-    }
+    var data = formp.data.value;
+    var sintomas = formp.sintomas.value;
+    var vacina = formp.vacina.value;
+    var seleciona = formp.tipo.value;
+    var faixaidade = formp.idade.value;
 
-    if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){
-        alert("Os sintomas devem ser preenchidos");
-        return false;
+    if (data == ""){
+        alert("Preencha a data ");
     }
-    if (nome == null || nome == ""){
-        alert("O nome completo deve ser preenchido");
-        return false;
-    }
-    if (tipo.value == " " || tipo.value == "Selecione"){
-        alert("Escolha uma opção.");
-        return false;
-    }
-    if (tipo2.value == " " || tipo2.value == "Selecione"){
-        alert("Escolha uma opção.");
-        return false;
-    }
-
-
 
 }
