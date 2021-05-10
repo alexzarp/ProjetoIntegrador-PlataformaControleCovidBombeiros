@@ -28,7 +28,7 @@
                 $query->bindParam(":email", $email);
                 $query->execute();
                 $registro = $query->fetchAll();
-                echo $senha;
+                // echo $senha;
                 if($query->rowCount() == 1){
                     if ($senha == $registro[0]['senha']){
                         return true;

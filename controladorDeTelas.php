@@ -9,6 +9,7 @@ if (!isset($_SESSION['login'])){
         $login = $b->login($_POST['email'], md5($_POST['senha']));
         if ($login == true) {
             $_SESSION['login'] = $login;
+            header('Location: controladorDeTelas.php');
         } else {
             header("Location: index.php?acao=recusado");
         }

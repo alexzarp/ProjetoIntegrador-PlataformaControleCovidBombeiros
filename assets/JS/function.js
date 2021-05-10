@@ -1,5 +1,6 @@
 
 function validateForm(){
+    // alert('teste');
     var nome = document.getElementById("nome").value;
     var email = document.getElementById("email").value;
     var sintomas = document.getElementById("sintomas").value;
