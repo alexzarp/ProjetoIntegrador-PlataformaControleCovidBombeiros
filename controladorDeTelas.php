@@ -22,10 +22,12 @@ if (!isset($_SESSION['login'])){
         $_SESSION['caminhoDeFundo'] = 'view/cadastroBombeiro.php';
         include ("view/layout/fundo.php");
 
+        $_SESSION['adm'] = false;
         if (isset($_POST['email']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['re_senha'])) {
-            $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']));
+            $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']), $_SESSION['adm']);
             echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
         }
+        unset($_SESSION['adm']);
     }// elseif () {} 
     else {
         header("Location: index.php?acao=recusado");
@@ -53,9 +55,18 @@ else {
             $_SESSION['caminhoDeFundo'] = 'view/cadastroBombeiro.php';
             include ("view/layout/fundo.php");
 
-            if (isset($_POST['email']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['re_senha'])) {
-                $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']));
-                echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+            if (isset($_SESSION['adm'])){
+                if (isset($_POST['email']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['re_senha'])) {
+                    $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']), $_SESSION['adm']);
+                    echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+                }
+            } else {
+                $_SESSION['adm'] = false;
+                if (isset($_POST['email']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['re_senha'])) {
+                    $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']), $_SESSION['adm']);
+                    echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+                }
+                unset($_SESSION['adm']);
             }
         break;
 

@@ -55,8 +55,7 @@ main {
 
 #exit_img{
     width: 30%;
-    padding: 5% 5% 0 65%;
-    /* left: 0; */
+    margin: 5% 5% 0 65%;
 }
 
 @media (max-width: 700px){
@@ -69,7 +68,7 @@ main {
     }
     #exit_img {
         width: 15%;
-        padding-left: 80%;
+        margin-left: 80%;
     }
     
     input[type=submit] {

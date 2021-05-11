@@ -47,9 +47,8 @@
         } 
         
 
-        public function cadastroBombeiro($nome, $matricula, $email, $senha, $re_senha) {
+        public function cadastroBombeiro($nome, $matricula, $email, $senha, $re_senha, $adm) {
             try {
-                $adm = 0;
                 if ($senha === $re_senha){
                     $query = $this->conexao->prepare("INSERT INTO bombeiro (matricula, email, senha, nome, adm) VALUES (
                         :matricula,
