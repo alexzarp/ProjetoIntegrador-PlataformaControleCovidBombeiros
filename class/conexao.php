@@ -6,7 +6,7 @@
         public static function conecta () {
             if (!isset(self::$conexao)){
                 try {
-                    self::$conexao = new PDO("mysql:host=localhost; dbname=covidbombeiro;", "root", "");
+                    self::$conexao = new PDO("mysql:host=localhost; dbname=covidbombeiros;", "root", "");
                 }
                 catch (PDOException $e) {
                     echo "Erro de conexão com o banco: ".$e->getMessage();
