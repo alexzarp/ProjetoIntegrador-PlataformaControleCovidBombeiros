@@ -46,6 +46,33 @@
             }
         } 
         
+
+        public function cadastroBombeiro($nome, $matricula, $email, $senha, $re_senha) {
+            try {
+                $adm = NULL;
+                if ($senha === $re_senha){
+                    $query = $this->conexao->prepare("INSERT INTO bombeiro (matricula, email, senha, nome, adm) VALUES (
+                        :matricula,
+                        :email,
+                        :senha,
+                        :nome,
+                        :adm
+                    )");
+                    $query->bindParam(":nome", $nome);
+                    $query->bindParam(":matricula", $matricula);
+                    $query->bindParam(":email", $email);
+                    $query->bindParam(":senha", $senha);
+                    $query->bindParam(":adm", $adm);
+                    $query->execute();
+                } else {
+                    echo "<strong>Senhas não convergem!</strong>";
+                    // return false;
+                }
+
+            } catch (PDOException $e){
+                echo 'Erro na inserção de novo usuário: '.$e->getMessage();
+            }
+        }
     }
 
 ?>

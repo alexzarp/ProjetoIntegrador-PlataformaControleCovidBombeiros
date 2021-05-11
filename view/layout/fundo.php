@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt=br">
     <?php 
-        // session_start();
         $titulo = $_SESSION['titulo'];
         $caminhoCSS = $_SESSION['caminhoCSS'];
         $caminhoDeFundo = $_SESSION['caminhoDeFundo'];
@@ -33,6 +32,13 @@
                 ?>
             </div>
 
+            <div>
+                <a href="controladorDeTelas.php?acao=destroy"><img title="Encerar esta sessão" src="assets/images/exit.svg" id="exit_img"> </a>
+            </div>
+            <!-- <div>
+                <strong>Logado como:</strong>
+                <p></p>
+            </div> -->
             <!--Este espaço ficará vazio na em modo coluna 15 70 15-->
         </main>
     </body>

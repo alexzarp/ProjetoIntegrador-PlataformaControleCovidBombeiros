@@ -13,11 +13,14 @@ if (!isset($_SESSION['login'])){
         } else {
             header("Location: index.php?acao=recusado");
         }
-    } else {
+    } //elseif () {
+
+    // } elseif () {} 
+    else {
         header("Location: index.php?acao=recusado");
     }
 } 
-elseif (!isset($_GET['acao']) or $_GET['acao'] == 'adm_painel'){
+elseif (!isset($_GET['acao']) or $_GET['acao'] == 'adm_painel'/* && isset($_SESSION['login'])*/){
     $_SESSION['titulo'] = 'Página do Administrador';
     $_SESSION['caminhoCSS'] = 'assets/CSS/painelAdministrativo.css';
     $_SESSION['caminhoDeFundo'] = 'view/painelAdministrativo.php';
@@ -31,6 +34,11 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/cadastroBombeiro.css';
             $_SESSION['caminhoDeFundo'] = 'view/cadastroBombeiro.php';
             include ("view/layout/fundo.php");
+
+            if (isset($_POST['email']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['re_senha'])) {
+                $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']));
+                echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+            }
         break;
 
         case 'acompanhamento':
@@ -73,6 +81,16 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/registroSintomas.css';
             $_SESSION['caminhoDeFundo'] = 'view/registroSintomas.php';
             include ('view/layout/fundo.php');
+        break;
+
+        case 'destroy':
+            session_destroy();
+            header('Location: index.php');
+        break;
+
+        default:
+            session_destroy();
+            header('Location: index.php');
         break;
     }
 }
