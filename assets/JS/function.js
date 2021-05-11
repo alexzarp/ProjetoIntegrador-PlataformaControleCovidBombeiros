@@ -28,16 +28,46 @@ function validateForm(){
         
     
 }
-var specialKeys = new Array();
-specialKeys.push(8);
-function numero(e){
+/*var specialKeys = new Array();
+specialKeys.push(8);*/
+/*function numero(e){
     var keyCode = e.which ? e.which : e.keyCode
-    var ret = ((keyCode >= 10 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
-    document.getElementById("error");
-    
+    /*if ((keyCode >= 47 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1){
+        document.getElementById("error");
+        return true;
+    }*/
+    /*var ret = ((keyCode >= 47 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+    var matricula = document.getElementById("error");
     return ret;
+    /*ret = specialKeys.indexOf(keyCode) == -1*/
+    /*if (matricula == null || matricula == "" || matricula.indexOf(" ") == -1){
+        alert("Preencha a matricula");
+        return false;
+    }*/
     
-    
+//}
+
+function SomenteNumero(e){
+    var tecla=(window.event)?event.keyCode:e.which;   
+    if((tecla>47 && tecla<58)) return true;
+    else{
+    	if (tecla==8 || tecla==0) return true;
+	else  return false;
+    }
+}
+function validaMatricula(){
+    var matricula = getElementById("erro").value;
+    if(matricula.length < 7 || matricula.length > 8){
+        return false;
+    }else{
+        return true;
+    }
+    if(matricula == null || matricula == "" || matricula.indexOf(" ") == -1){
+        alert("Por favor preencha sua matrícula");
+        return false;
+
+    }
+
 }
 
 
