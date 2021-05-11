@@ -1,5 +1,5 @@
 <div>
-    <form  method="POST" onsubmit="return validateForm();validaMatricula()">
+    <form method="POST" onsubmit="return validateForm();validaMatricula()" action="controladorDeTelas.php?acao=cadastro_bombeiro">
         <h1>Cadastro do Bombeiro no sistema</h1><br>
 
         <input type="text" id="nome" name="nome" placeholder="Nome completo do militar"><br>

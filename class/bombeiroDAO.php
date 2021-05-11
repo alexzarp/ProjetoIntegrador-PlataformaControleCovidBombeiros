@@ -24,14 +24,14 @@
 
         public function login($email, $senha){
             try{
-                $query = $this->conexao->prepare("SELECT email, senha FROM bombeiro WHERE email = :email");
+                $query = $this->conexao->prepare("SELECT email, senha, adm FROM bombeiro WHERE email = :email");
                 $query->bindParam(":email", $email);
                 $query->execute();
                 $registro = $query->fetchAll();
                 // echo $senha;
                 if($query->rowCount() == 1){
                     if ($senha == $registro[0]['senha']){
-                        return true;
+                        return $registro[0];
                     }
                     else{
                         return false;

@@ -6,8 +6,24 @@ CREATE TABLE bombeiro(
     matricula integer(7) PRIMARY KEY,
     email varchar(20) NOT NULL,
     senha varchar(32) NOT NULL,
-    nome varchar(30) NOT NULL,
+    nome varchar(50) NOT NULL,
     adm boolean NOT NULL
+);
+
+INSERT INTO bombeiro (matricula, email, senha, nome, adm) VALUES (
+    1234567,
+    "t@t.com",
+    "e10adc3949ba59abbe56e057f20f883e", --123456
+    "Alessandro Souza",
+    1
+);
+
+INSERT INTO bombeiro (matricula, email, senha, nome, adm) VALUES (
+    1234567,
+    "w@w.com",
+    "e10adc3949ba59abbe56e057f20f883e", --123456
+    "Teste Usuario",
+    0
 );
 --  FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
 CREATE TABLE pretestagem (
@@ -46,3 +62,4 @@ CREATE TABLE avalia_retorno (
 
     FOREIGN KEY (id) REFERENCES pretestagem(id)
 );
+

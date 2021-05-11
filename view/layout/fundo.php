@@ -20,9 +20,17 @@
     <body>
         <main>
             <div>
-                <a href="controladorDeTelas.php?acao=adm_painel">
-                    <img id="logo" title="<< Volta ao painel administrativo" src="assets/images/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png" alt="Logo BOmbeiros SC">
-                </a>
+                <?php
+                    if(isset($_SESSION['adm'])) {
+                        echo ('<a href="controladorDeTelas.php?acao=adm_painel">
+                            <img id="logo" title="<< Volta ao painel administrativo" src="assets/images/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png" alt="Logo Bombeiros SC">
+                        </a>');
+                    } else {
+                        echo ('<a href="controladorDeTelas.php?acao=tela_usuario">
+                            <img id="logo" title="<< Volta ao painel" src="assets/images/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png" alt="Logo Bombeiros SC">
+                        </a>');
+                    }
+                ?>              
             </div>
             
             
@@ -35,11 +43,7 @@
             <div>
                 <a href="controladorDeTelas.php?acao=destroy"><img title="Encerar esta sessão" src="assets/images/exit.svg" id="exit_img"> </a>
             </div>
-            <!-- <div>
-                <strong>Logado como:</strong>
-                <p></p>
-            </div> -->
-            <!--Este espaço ficará vazio na em modo coluna 15 70 15-->
+
         </main>
     </body>
     <script src="assets/JS/function.js"></script>

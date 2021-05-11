@@ -5,30 +5,48 @@ $b = new BombeiroDAO();
 session_start();
 
 if (!isset($_SESSION['login'])){
-    if (isset($_POST['email']) && isset($_POST['senha'])) {
+    if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['acesso'])) {
         $login = $b->login($_POST['email'], md5($_POST['senha']));
-        if ($login == true) {
-            $_SESSION['login'] = $login;
+        if ($login) {
+            $_SESSION['login'] = true;
+            if ($login['adm'] == 1) {
+                $_SESSION['adm'] = true;
+            }
             header('Location: controladorDeTelas.php');
         } else {
             header("Location: index.php?acao=recusado");
         }
-    } //elseif () {
+    } elseif (isset($_GET['acao']) && $_GET['acao'] == 'cadastro_bombeiro') {
+        $_SESSION['titulo'] = 'Cadastro do Bombeiro';
+        $_SESSION['caminhoCSS'] = 'assets/CSS/cadastroBombeiro.css';
+        $_SESSION['caminhoDeFundo'] = 'view/cadastroBombeiro.php';
+        include ("view/layout/fundo.php");
 
-    // } elseif () {} 
+        if (isset($_POST['email']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['re_senha'])) {
+            $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']));
+            echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+        }
+    }// elseif () {} 
     else {
         header("Location: index.php?acao=recusado");
     }
 } 
-elseif (!isset($_GET['acao']) or $_GET['acao'] == 'adm_painel'/* && isset($_SESSION['login'])*/){
+elseif (isset($_SESSION['adm']) && !isset($_GET['acao']) | $_GET['acao'] == 'adm_painel'){
     $_SESSION['titulo'] = 'Página do Administrador';
     $_SESSION['caminhoCSS'] = 'assets/CSS/painelAdministrativo.css';
     $_SESSION['caminhoDeFundo'] = 'view/painelAdministrativo.php';
     include ("view/layout/fundo.php");
 }
+elseif (!isset($_SESSION['adm']) && !isset($_GET['acao']) or $_GET['acao'] == 'tela_usuario'){
+    $_SESSION['titulo'] = 'Página do Usuário';
+    $_SESSION['caminhoCSS'] = 'assets/CSS/painelAdministrativo.css';//tá funcionando, mas se precisar alterações
+    // específicas nessa tela, deve usar o telaUsuario.css
+    $_SESSION['caminhoDeFundo'] = 'view/telaUsuario.php';
+    include ("view/layout/fundo.php");
+}
 else {
     switch($_GET['acao']) {
-
+// verificar se a seção é adm
         case 'cadastro_bombeiro':
             $_SESSION['titulo'] = 'Cadastro do Bombeiro';
             $_SESSION['caminhoCSS'] = 'assets/CSS/cadastroBombeiro.css';
@@ -82,6 +100,14 @@ else {
             $_SESSION['caminhoDeFundo'] = 'view/registroSintomas.php';
             include ('view/layout/fundo.php');
         break;
+
+        // case 'tela_usuario':
+        //     $_SESSION['titulo'] = 'Página do Usuário';
+        //     $_SESSION['caminhoCSS'] = 'assets/CSS/painelAdministrativo.css';//tá funcionando, mas se precisar alterações
+        //     // específicas nessa tela, deve usar o telaUsuario.css
+        //     $_SESSION['caminhoDeFundo'] = 'view/telaUsuario.php';
+        //     include ("view/layout/fundo.php");
+        // break;
 
         case 'destroy':
             session_destroy();

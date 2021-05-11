@@ -8,7 +8,7 @@
     <form action="controladorDeTelas.php" method="POST">
         <input type="email" id="email" name="email" placeholder="E-mail"><br>
         <input type="password" id="senha" name="senha" placeholder="Senha"><br>
-        <input type="submit" value="Acesso" id="submeter"><br>
+        <input type="submit" value="Acesso" id="submeter" name="acesso"><br>
     </form>
 
     <div>
