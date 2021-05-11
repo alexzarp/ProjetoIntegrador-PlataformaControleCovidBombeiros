@@ -49,7 +49,7 @@ function validaMatricula(){
 function validaSenha(){
     var senha = getElementById("senha").value;
     var max = 8;
-    if(senha.length > 8){
+    if(senha.length > max){
         alert("Digite uma senha com no maxímo 8 digitos");
         return false;
     }else{
