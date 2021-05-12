@@ -16,8 +16,10 @@ function validateForm(){
         alert("O email deve ser preenchido");
         return false;
     }
-   
-    
+    /*if (matricula == null || matricula == "" || matricula.indexOf("@") == -1){
+        alert("A matricula deve ser preenchido");
+        return false;
+    }*/
     if(senha != "" && confirma_senha != "" && senha === confirma_senha){
         return true;
     }
@@ -25,6 +27,7 @@ function validateForm(){
         alert('Senhas Diferentes, digite novamente');
         return false;
     }
+    
         
     
 }
@@ -37,6 +40,7 @@ function SomenteNumero(e){
     }
 }
 function validaMatricula(){
+    alert("entrou");
     var matricula = getElementById("erro").value;
     if(matricula.length < 7 || matricula.length > 8){
         alert("Por favor digite a matrícula com 7 digitos");
