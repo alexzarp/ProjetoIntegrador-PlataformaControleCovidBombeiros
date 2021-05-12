@@ -19,3 +19,7 @@ div .span:hover {
     color: white;
     transition: 0.6s;
 }
+
+#alert_img {
+    height: 2vh;
+}

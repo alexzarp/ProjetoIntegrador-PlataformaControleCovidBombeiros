@@ -33,13 +33,13 @@ if (!isset($_SESSION['login'])){
         header("Location: index.php?acao=recusado");
     }
 } 
-elseif (isset($_SESSION['adm']) && !isset($_GET['acao']) | $_GET['acao'] == 'adm_painel'){
+elseif (isset($_SESSION['adm']) && !isset($_GET['acao']) || (isset($_GET['acao']) && $_GET['acao'] == 'adm_painel')){
     $_SESSION['titulo'] = 'Página do Administrador';
     $_SESSION['caminhoCSS'] = 'assets/CSS/painelAdministrativo.css';
     $_SESSION['caminhoDeFundo'] = 'view/painelAdministrativo.php';
     include ("view/layout/fundo.php");
 }
-elseif (!isset($_SESSION['adm']) && !isset($_GET['acao']) or $_GET['acao'] == 'tela_usuario'){
+elseif (!isset($_SESSION['adm']) && !isset($_GET['acao']) || (isset($_GET['acao']) && $_GET['acao'] == 'tela_usuario')){
     $_SESSION['titulo'] = 'Página do Usuário';
     $_SESSION['caminhoCSS'] = 'assets/CSS/painelAdministrativo.css';//tá funcionando, mas se precisar alterações
     // específicas nessa tela, deve usar o telaUsuario.css
