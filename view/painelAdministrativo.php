@@ -4,7 +4,8 @@
     <div class="grid_painel">
 
         <a href="controladorDeTelas.php?acao=cadastro_bombeiro" class="span">
-            Fazer cadastro de Bombeiro
+            <span>Fazer cadastro de Bombeiro como Administrador</span>
+            <img id="alert_img" src="assets/images/warning.svg" alt="Sinal de alerta">
         </a>
 
         <a href="controladorDeTelas.php?acao=acompanhamento" class="span">
