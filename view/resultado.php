@@ -18,7 +18,7 @@
         </div>
         <br>
         <div>
-            <label for="id_data">Data do teste:</label>
+            <label for="id_data" type="date">Data do teste:</label>
             <input type="date" id="data" name="data" placeholder="Data do teste" required>
         </div>
         
