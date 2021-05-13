@@ -1,6 +1,8 @@
 <?php 
 include ('class/bombeiroDAO.php');
+include('class/vacinaDAO.php');
 $b = new BombeiroDAO();
+$d = new VacinaDAO();
 
 session_start();
 

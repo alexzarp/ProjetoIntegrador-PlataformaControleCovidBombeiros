@@ -1,15 +1,16 @@
 <div class="preTestagem">
     <h1>Pré - Testagem</h1>    
     <form id="form" name="formp" onsubmit="return validateForm5()" method="POST">
-    <div>
+        <div>
             <select name="bombeiro" id="nome" required>
-                <option value="opcao[0]" selected>Nome - 
-                    Cadastro do bombeiro já deve constar no sistema</option>
-                <?php foreach ($bombeiros_cadastrados as $opcao) 
-                    echo "<option value=".$opcao.">"
+                <option value="opcao" selected>Nome - Cadastro do bombeiro já deve constar no sistema</option>
+                <?php            
+                    $regitros = $b->listarBombeiro();
+                    foreach ($registros as $key)
+                        echo ('<option value="opcao">'.$key.' - '.$key.'</option>');
                 ?>
 
-                <option value="opcao[1]">AAAAA</option>
+                <!-- <option value="opcao">AAAAA</option> -->
             </select> 
         </div>
         <br>
@@ -33,8 +34,12 @@
             <label for="tipoV">Vacina:</label>
             <select id="tipo" name="tipo">
                 <option>Selecione</option>
-                <option>CORONAVAC - Instituto Butantan</option>
-                <option>OXFORD - AstraZeneca</option>
+                <?php
+                    $registros = $d->listaVacina();
+                    foreach ($registros as $key) {
+                        echo ('<option>'.$key.'</option>');
+                    }
+                ?>
             </select>
         </div>  
         <br>    

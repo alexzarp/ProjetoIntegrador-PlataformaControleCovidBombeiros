@@ -10,12 +10,21 @@
         public function __construct() {
             $this->conexao = Conexao::conecta();
         }
+        // try {
+        //     $query = $this->conexao->prepare("SELECT nome_vac FROM vacina");
+        //     $query->execute();
+        //     $registro = $query->fetchAll();
 
+        //     return $registro;
+        // } catch (PDOException $e){
+        //     echo "Erro no acesso aos dados de vacina: ". $e->getMessage();
+        // }
         public function listarBombeiro () {
             try {
-                $query = $this->conexao->prepare("select * from tabela");//fictício
+                $query = $this->conexao->prepare('SELECT nome, matricula FROM bombeiro');
                 $query->execute();
-                return $regitros = $query->fetchAll(PDO::FETCH_CLASS, "Militar");
+                $regitros = $query->fetchAll();
+                return $regitros;
             }
             catch (PDOException $e) {
                 echo "Erro no acesso aos dados: ".$e->getMessage();
