@@ -3,7 +3,7 @@
     <form id="form" name="formp" onsubmit="return validateForm5()" method="POST">
         <div>
             <select name="bombeiro" id="nome" required>
-                <option value="opcao" selected>Nome - Cadastro do bombeiro já deve constar no sistema</option>
+                <option value="opcao">Nome - Cadastro do bombeiro já deve constar no sistema</option>
                 <?php            
                     $regitros = $b->listarBombeiro();
                     foreach ($registros as $key)

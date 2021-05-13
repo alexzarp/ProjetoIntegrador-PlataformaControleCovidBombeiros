@@ -3,7 +3,7 @@ function validateForm(){
     var nome = document.getElementById("nome").value;
     var email = document.getElementById("email").value;
     //var sintomas = document.getElementById("sintomas").value;
-    //var matricula = document.getElementById("erro").value;
+    var matricula = document.getElementById("matricula").value;
     //var data = document.getElementById("data").value;
     var senha = document.getElementById("senha").value;
     var confirma_senha = document.getElementById("re_senha").value;
@@ -16,10 +16,10 @@ function validateForm(){
         alert("O email deve ser preenchido");
         return false;
     }
-    /*if (matricula == null || matricula == "" || matricula.indexOf("@") == -1){
+    if (matricula == null || matricula == "" || matricula.indexOf("") == -1){
         alert("A matricula deve ser preenchido");
         return false;
-    }*/
+    }
     if(senha != "" && confirma_senha != "" && senha === confirma_senha){
         return true;
     }
