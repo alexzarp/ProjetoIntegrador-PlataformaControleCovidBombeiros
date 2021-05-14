@@ -50,7 +50,7 @@
             </div>
             <div>
                 <label for="id_data">Data da Segunda dose:</label>
-                <input type="date" id="data" name="data" placeholder="Data da Segunda dose:">
+                <input type="date" id="data" name="datas" placeholder="Data da Segunda dose:">
             </div>
         </div>
         
