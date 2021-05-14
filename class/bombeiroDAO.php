@@ -82,9 +82,31 @@
             }
         }
 
-        public function cadastroTestagem($data,$sintomas,$vacina,$tipo){
-            
+        public function listaVacina () {
+            try {
+                $query = $this->conexao->prepare("SELECT nome_vac FROM vacina");
+                $query->execute();
+                $registro = $query->fetchAll();
+
+                return $registro;
+            } catch (PDOException $e){
+                echo "Erro no acesso aos dados de vacina: ". $e->getMessage();
+            }
         }
+
+        public function insereDataIniSintomas ($dataInicioSint) {
+            try {
+                $query = $this->conexao->prepare("INSERT INTO pretestagem(dt_ini_sint) VALUES (:dataInicioSint)");
+                $query->bindParam(":dataInicioSint", $dataInicioSint);
+                $query->execute();
+            } catch (PDOException $e){
+                echo "Erro na insercão data do inicio dos sintomas: ". $e->getMessage();
+            }
+        }
+
+        // public function cadastroTestagem($data,$sintomas,$vacina,$tipo){
+            
+        // }
     }
 
 ?>

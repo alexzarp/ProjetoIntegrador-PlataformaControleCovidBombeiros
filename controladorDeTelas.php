@@ -1,12 +1,6 @@
 <?php 
 require_once ('class/bombeiroDAO.php');
-require_once ('class/vacinaDAO.php');
-require_once ('class/insercao.php');
-
 $b = new BombeiroDAO();
-$d = new VacinaDAO();
-$i = new Insere();
-
 session_start();
 
 if (!isset($_SESSION['login'])){
@@ -94,7 +88,7 @@ else {
             $_SESSION['caminhoDeFundo'] = 'view/pretestagem.php';
             include ("view/layout/fundo.php");
 
-            if (isset($_POST['tp']))
+            // if (isset($_POST['tp']))
         break;
 
         case 'resultado':

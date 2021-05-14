@@ -33,7 +33,7 @@
             <select id="tipo" name="tipo">
                 <option>Selecione</option>
                 <?php
-                    $registros = $d->listaVacina();
+                    $registros = $b->listaVacina();
                     foreach ($registros as $key) {
                         echo ('<option>'.$key['nome_vac'].'</option>');
                     }
