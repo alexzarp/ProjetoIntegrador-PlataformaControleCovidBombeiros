@@ -1,17 +1,15 @@
 <div class="preTestagem">
     <h1>Pré - Testagem</h1>    
-    <form id="form" name="formp" onsubmit="return validateForm5()" method="POST">
+    <form id="form" name="formp" onsubmit="return validateForm5()" method="POST" action="controladorDeTelas.php?acao=pretestagem">
         <div>
             <select name="bombeiro" id="nome" required>
                 <option value="opcao" selected>Nome - Cadastro do bombeiro já deve constar no sistema</option>
                 <?php            
-                    $regitros = $b->listarBombeiro();
-                    foreach ($registros as $key)
-                        echo ('<option value="opcao">'.$key.' - '.$key.'</option>');
+                    $reg = $b->listarBombeiro();
+                    foreach ($reg as $key)
+                        echo ('<option value="opcao">'.$key['nome'].' - '.$key['matricula'].'</option>');
                 ?>
-
-                <!-- <option value="opcao">AAAAA</option> -->
-            </select> 
+            </select>
         </div>
         <br>
         <div>
@@ -37,7 +35,7 @@
                 <?php
                     $registros = $d->listaVacina();
                     foreach ($registros as $key) {
-                        echo ('<option>'.$key.'</option>');
+                        echo ('<option>'.$key['nome_vac'].'</option>');
                     }
                 ?>
             </select>

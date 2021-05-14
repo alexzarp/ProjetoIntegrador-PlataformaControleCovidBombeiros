@@ -1,8 +1,11 @@
 <?php 
-include ('class/bombeiroDAO.php');
-include('class/vacinaDAO.php');
+require_once ('class/bombeiroDAO.php');
+require_once ('class/vacinaDAO.php');
+require_once ('class/insercao.php');
+
 $b = new BombeiroDAO();
 $d = new VacinaDAO();
+$i = new Insere();
 
 session_start();
 
@@ -91,6 +94,8 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/pretestagem.css';
             $_SESSION['caminhoDeFundo'] = 'view/pretestagem.php';
             include ("view/layout/fundo.php");
+
+            if (isset($_POST['tp']))
         break;
 
         case 'resultado':

@@ -23,11 +23,11 @@
             try {
                 $query = $this->conexao->prepare('SELECT nome, matricula FROM bombeiro');
                 $query->execute();
-                $regitros = $query->fetchAll();
-                return $regitros;
+                $registros = $query->fetchAll();
+                return $registros;
             }
             catch (PDOException $e) {
-                echo "Erro no acesso aos dados: ".$e->getMessage();
+                echo "Erro no acesso aos dados de nome: ".$e->getMessage();
             }
         }
 
