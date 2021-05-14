@@ -2,9 +2,7 @@
 function validateForm(){
     var nome = document.getElementById("nome").value;
     var email = document.getElementById("email").value;
-    //var sintomas = document.getElementById("sintomas").value;
-    //var matricula = document.getElementById("erro").value;
-    //var data = document.getElementById("data").value;
+    var matricula = document.getElementById("matricula").value;
     var senha = document.getElementById("senha").value;
     var confirma_senha = document.getElementById("re_senha").value;
     
@@ -16,10 +14,10 @@ function validateForm(){
         alert("O email deve ser preenchido");
         return false;
     }
-    /*if (matricula == null || matricula == "" || matricula.indexOf("@") == -1){
+    if (matricula == null || matricula == "" || matricula.indexOf("") == -1){
         alert("A matricula deve ser preenchido");
         return false;
-    }*/
+    }
     if(senha != "" && confirma_senha != "" && senha === confirma_senha){
         return true;
     }
@@ -41,7 +39,7 @@ function SomenteNumero(e){
 }
 function validaMatricula(){
     alert("entrou");
-    var matricula = getElementById("erro").value;
+    var matricula = getElementById("matricula").value;
     if(matricula.length < 7 || matricula.length > 8){
         alert("Por favor digite a matrícula com 7 digitos");
         return false;

@@ -81,6 +81,10 @@
                 echo 'Erro na inserção de novo usuário: '.$e->getMessage();
             }
         }
+
+        public function cadastroTestagem($data,$sintomas,$vacina,$tipo){
+            
+        }
     }
 
 ?>

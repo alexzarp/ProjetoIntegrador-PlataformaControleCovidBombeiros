@@ -30,9 +30,6 @@ CREATE TABLE pretestagem (
     id integer PRIMARY KEY AUTO_INCREMENT,
     dt_ini_sint date NOT NULL,
     descr varchar(1000) NOT NULL,
-    tipo_teste varchar(20),
-    dt_teste date,
-    result_teste varchar(1000),
     faixa_etaria varchar(7) NOT NULL,
     matricula integer(7) NOT NULL,
     vacinado_vacina varchar(20),
@@ -65,4 +62,13 @@ CREATE TABLE avalia_retorno (
 
     FOREIGN KEY (id) REFERENCES pretestagem(id)
 );
-
+--*********************************------
+create table result_teste(
+  id int PRIMARY KEY AUTO_INCREMENT not null,
+  dt_teste date not null,
+  tp_teste varchar(50) not null,
+  result_teste varchar(20) not null,
+  matricula int(7) not null,
+  FOREIGN KEY(matricula) references bombeiro (matricula),
+  FOREIGN KEY (id) references pretestagem (id)
+);

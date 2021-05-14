@@ -3,7 +3,7 @@
     <form id="form" name="formp" onsubmit="return validateForm5()" method="POST" action="controladorDeTelas.php?acao=pretestagem">
         <div>
             <select name="bombeiro" id="nome" required>
-                <option value="opcao" selected>Nome - Cadastro do bombeiro já deve constar no sistema</option>
+                <option value="opcao">Nome - Cadastro do bombeiro já deve constar no sistema</option>
                 <?php            
                     $reg = $b->listarBombeiro();
                     foreach ($reg as $key)
@@ -48,7 +48,7 @@
             </div>
             <div>
                 <label for="id_data">Data da Segunda dose:</label>
-                <input type="date" id="data" name="data" placeholder="Data da Segunda dose:">
+                <input type="date" id="data" name="datas" placeholder="Data da Segunda dose:">
             </div>
         </div>
         

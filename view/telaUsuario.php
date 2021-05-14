@@ -1,5 +1,5 @@
 <div>
-    <h1>Sistema de testagem para a Covi-19</h1>
+    <h1>Sistema de testagem para a Covid-19</h1>
 
     <div class="grid_painel">
 
