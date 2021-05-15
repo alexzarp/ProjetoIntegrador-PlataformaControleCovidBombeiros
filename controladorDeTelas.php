@@ -88,7 +88,29 @@ else {
             $_SESSION['caminhoDeFundo'] = 'view/pretestagem.php';
             include ("view/layout/fundo.php");
 
-            // if (isset($_POST['tp']))
+            if (isset($_POST['submete_pre'])/*isset($_POST['data'])&& isset($_POST['sintomas'])&& isset($_POST['bombeiro'])&& isset($_POST['idade'])*/){
+                echo 'teste';
+                if (isset($_POST['vacina'])){
+                    if (isset($_POST['datas'])){
+                        $b->cadastroPretestagem($_POST['data'], $_POST['sintomas'],$_POST['idade'],$_POST['bombeiro'],$_POST['vacina'],$_POST['datap'],$_POST['datas']);
+                        echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+                    } else {
+                        $_POST['datas'] = false;
+                        $b->cadastroPretestagem($_POST['data'], $_POST['sintomas'],$_POST['idade'],$_POST['bombeiro'],$_POST['vacina'],$_POST['datap'],$_POST['datas']);
+                        unset($_POST['datas']);
+                        echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+                    }
+                } else {
+                    $_POST['vacina'] = false;
+                    $_POST['datap'] = false;
+                    $_POST['datas'] = false;
+                    $b->cadastroPretestagem($_POST['data'], $_POST['sintomas'],$_POST['idade'],$_POST['bombeiro'],$_POST['vacina'],$_POST['datap'],$_POST['datas']);
+                    unset($_POST['vacina']);
+                    unset($_POST['datap']);
+                    unset($_POST['datas']);
+                    echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+                }
+            }
         break;
 
         case 'resultado':

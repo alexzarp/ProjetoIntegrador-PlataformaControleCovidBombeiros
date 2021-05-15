@@ -7,7 +7,7 @@
                 <?php            
                     $reg = $b->listarBombeiro();
                     foreach ($reg as $key)
-                        echo ('<option value="opcao">'.$key['nome'].' - '.$key['matricula'].'</option>');
+                        echo ('<option value="opcao">'/*.$key['nome'].' - '*/.$key['matricula'].'</option>');
                 ?>
             </select>
         </div>
@@ -30,10 +30,10 @@
         <br>
         <div>
             <label for="tipoV">Vacina:</label>
-            <select id="tipo" name="tipo">
+            <select id="tipo" name="vacina">
                 <option>Selecione</option>
                 <?php
-                    $registros = $b->listaVacina();
+                    $registros = $b->listarVacina();
                     foreach ($registros as $key) {
                         echo ('<option>'.$key['nome_vac'].'</option>');
                     }
@@ -65,9 +65,16 @@
                 <option>70 - 79 anos</option>
             </select>
         </div>  
-        <input type="submit" value="Submeter Pré-testagem " id="submeter">
+        <input type="submit" value="Submeter Pré-testagem " name='submete_pre' id="submeter">
         
     </form>
 
 </div>
+<!-- <?php
+    $teste = 'ALEX sandro - →☻';
+    echo $teste."<br>";
+    $teste = $b->removeNomes($teste);
+    echo $teste;
+?> -->
+
 <script src="assets/JS/function.js"></script>
