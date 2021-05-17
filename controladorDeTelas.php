@@ -55,14 +55,11 @@ else {
             include ("view/layout/fundo.php");
             if (isset($_SESSION['adm'])){
                 if (isset($_POST['email']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['re_senha'])) {
-                    $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']), $_SESSION['adm']);
-                    echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
-                }
+                    $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']), $_SESSION['adm']);                }
             } else {
                 $_SESSION['adm'] = false;
                 if (isset($_POST['email']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['re_senha'])) {
                     $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']), $_SESSION['adm']);
-                    echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
                 }
                 unset($_SESSION['adm']);
             }
@@ -88,28 +85,15 @@ else {
             $_SESSION['caminhoDeFundo'] = 'view/pretestagem.php';
             include ("view/layout/fundo.php");
 
-            if (isset($_POST['submete_pre'])/*isset($_POST['data'])&& isset($_POST['sintomas'])&& isset($_POST['bombeiro'])&& isset($_POST['idade'])*/){
-                echo 'teste';
-                if (isset($_POST['vacina'])){
-                    if (isset($_POST['datas'])){
-                        $b->cadastroPretestagem($_POST['data'], $_POST['sintomas'],$_POST['idade'],$_POST['bombeiro'],$_POST['vacina'],$_POST['datap'],$_POST['datas']);
-                        echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
-                    } else {
-                        $_POST['datas'] = false;
-                        $b->cadastroPretestagem($_POST['data'], $_POST['sintomas'],$_POST['idade'],$_POST['bombeiro'],$_POST['vacina'],$_POST['datap'],$_POST['datas']);
-                        unset($_POST['datas']);
-                        echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
-                    }
-                } else {
-                    $_POST['vacina'] = false;
-                    $_POST['datap'] = false;
-                    $_POST['datas'] = false;
-                    $b->cadastroPretestagem($_POST['data'], $_POST['sintomas'],$_POST['idade'],$_POST['bombeiro'],$_POST['vacina'],$_POST['datap'],$_POST['datas']);
-                    unset($_POST['vacina']);
-                    unset($_POST['datap']);
-                    unset($_POST['datas']);
-                    echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+            if (isset($_POST['submete_pre'])){
+                if (!isset($_POST['vacina']) || $_POST['vacina'] == 'n'){
+                    $_POST['vacina'] = NULL;
+                    $_POST['datap'] = NULL;
+                    $_POST['datas'] = NULL;
+                } elseif (!isset($_POST['vacinas'])) {  
+                    $_POST['datas'] = NULL;
                 }
+                $b->cadastroPretestagem($_POST['data'], $_POST['sintomas'],$_POST['idade'],$_POST['bombeiro'],$_POST['vacina'],$_POST['datap'],$_POST['datas']);
             }
         break;
 
@@ -133,14 +117,6 @@ else {
             $_SESSION['caminhoDeFundo'] = 'view/registroSintomas.php';
             include ('view/layout/fundo.php');
         break;
-
-        // case 'tela_usuario':
-        //     $_SESSION['titulo'] = 'Página do Usuário';
-        //     $_SESSION['caminhoCSS'] = 'assets/CSS/painelAdministrativo.css';//tá funcionando, mas se precisar alterações
-        //     // específicas nessa tela, deve usar o telaUsuario.css
-        //     $_SESSION['caminhoDeFundo'] = 'view/telaUsuario.php';
-        //     include ("view/layout/fundo.php");
-        // break;
 
         case 'destroy':
             session_destroy();

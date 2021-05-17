@@ -7,7 +7,7 @@
                 <?php            
                     $reg = $b->listarBombeiro();
                     foreach ($reg as $key)
-                        echo ('<option value="opcao">'/*.$key['nome'].' - '*/.$key['matricula'].'</option>');
+                        echo ('<option value='.$key['matricula'].'>'.$key['nome'].' - '.$key['matricula'].'</option>');
                 ?>
             </select>
         </div>
@@ -24,18 +24,18 @@
         <div>
             <label>Realizou a vacina da covid-19:</label>
             <br>
-            <label><input type="radio" name="vacina" value="" id="radio">Sim</label><br>
-            <label><input type="radio" name="vacina" value="" id="radio">Não</label><br>
+            <label><input type="radio" name="vacina" value="s" id="radio">Sim</label><br>
+            <label><input type="radio" name="vacina" value="n" id="radio">Não</label><br>
         </div>
         <br>
         <div>
             <label for="tipoV">Vacina:</label>
             <select id="tipo" name="vacina">
-                <option>Selecione</option>
+                <option value='0'>Selecione</option>
                 <?php
                     $registros = $b->listarVacina();
                     foreach ($registros as $key) {
-                        echo ('<option>'.$key['nome_vac'].'</option>');
+                        echo ('<option value='.$key['id_vacina'].'>'.$key['nome_vac'].'</option>');
                     }
                 ?>
             </select>

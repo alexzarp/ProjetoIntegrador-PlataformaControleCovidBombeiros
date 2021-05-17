@@ -58,6 +58,16 @@ main {
     margin: 5% 5% 0 65%;
 }
 
+#inserido {
+    color: green;
+    margin-left: 20px;
+}
+
+#erro {
+    color: red;
+    margin-left: 20px;
+}
+
 @media (max-width: 700px){
     main{
         display: block;

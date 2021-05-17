@@ -52,6 +52,7 @@ CREATE TABLE vacina (
 INSERT INTO vacina (nome_vac) VALUES ("CORONAVAC - Instituto Butantan");
 INSERT INTO vacina (nome_vac) VALUES ("OXFORD - AstraZeneca");
 INSERT INTO vacina (nome_vac) VALUES ("PFIZER");
+INSERT INTO vacina (nome_vac) VALUES ("Sem");
 
 CREATE TABLE avalia_retorno (
     id integer PRIMARY KEY AUTO_INCREMENT,

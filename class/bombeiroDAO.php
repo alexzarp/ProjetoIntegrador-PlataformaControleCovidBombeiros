@@ -72,9 +72,9 @@
                     $query->bindParam(":senha", $senha);
                     $query->bindParam(":adm", $adm);
                     $query->execute();
+                    echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
                 } else {
-                    echo "<strong>Senhas não convergem!</strong>";
-                    // return false;
+                    echo "<strong id='erro'>Senhas não convergem!</strong>";
                 }
 
             } catch (PDOException $e){
@@ -84,7 +84,7 @@
 
         public function listarVacina () {
             try {
-                $query = $this->conexao->prepare("SELECT nome_vac FROM vacina");
+                $query = $this->conexao->prepare("SELECT nome_vac, id_vacina FROM vacina");
                 $query->execute();
                 $registro = $query->fetchAll();
 
@@ -104,60 +104,41 @@
             }
         }
 
-        public function cadastroPretestagem($dt_inicio_sint, $descr, $faixa_etaria, $matricula, $vacina, $dt_primeira, $dt_segunda){
+        public function cadastroPretestagem($dt_inicio_sint, $descr, $faixa_etaria, $matricula, $id_vacina, $data_primeira, $data_segunda){
             try {
-                if ($vacina){
-                    $query = $this->conexao->prepare('INSERT INTO pretestagem(dt_ini_sint, descr, faixa_etaria, matricula, vacinado_vacina) VALUES (
-                        :dt_inicio_sint,
-                        :descr,
-                        :faixa_etaria,
-                        :matricula
-                        :vacina
-                    )');
-                    $query->bindParam(":dt_inicio_sint", $dt_inicio_sint);
-                    $query->bindParam(":descr", $descr);
-                    $query->bindParam(":faixa_etaria", $faixa_etaria);
-                    $query->bindParam(":matricula", $matricula);
-                    $query->bindParam(":vacina", $vacina);
-
-                    if ($dt_segunda){
-                        $query = $this->conexao->prepare('INSERT INTO vacinado(nome_vacina, data_primeira, data_segunda) VALUES (:vacina, :dt_primeira, dt_degunda)');
-                        $query->bindParam(":dt_primeira", $dt_primeira);
-                        $query->bindParam(":dt_segunda", $dt_segunda);
-                    } else {
-                        $query = $this->conexao->prepare('INSERT INTO vacinado(nome_vacina, data_primeira) VALUES (:vacina, :dt_primeira)');
-                        $query->bindParam(":dt_primeira", $dt_primeira);
-                    }
-                    $query->execute();
-                }
-                else{
-                    $query = $this->conexao->prepare('INSERT INTO pretestagem(dt_ini_sint, descr, faixa_etaria, matricula) VALUES (
-                                                                              :dt_inicio_sint,
-                                                                              :descr,
-                                                                              :faixa_etaria,
-                                                                              :matricula
-                    )');
-                    $query->bindParam(":dt_inicio_sint", $dt_inicio_sint);
-                    $query->bindParam(":descr", $descr);
-                    $query->bindParam(":faixa_etaria", $faixa_etaria);
-                    $query->bindParam(":matricula", $matricula);
-                    $query->execute();
-                }
+                $query = $this->conexao->prepare('INSERT INTO pretestagem(dt_ini_sint, descr, faixa_etaria, matricula, id_vacina, data_primeira, data_segunda) VALUES (
+                    :dt_inicio_sint,
+                    :descr,
+                    :faixa_etaria,
+                    :matricula,
+                    :id_vacina,
+                    :data_primeira,
+                    :data_segunda
+                )');
+                $query->bindParam(":dt_inicio_sint", $dt_inicio_sint);
+                $query->bindParam(":descr", $descr);
+                $query->bindParam(":faixa_etaria", $faixa_etaria);
+                $query->bindParam(":matricula", $matricula);
+                $query->bindParam(":id_vacina", $id_vacina);
+                $query->bindParam(":data_primeira", $data_primeira);
+                $query->bindParam(":data_segunda", $data_segunda);
+                $query->execute();
+                echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
             } catch (PDOException $e) {
                 echo 'Erro de insersão da pré-testagem: '.$e->getMessage();
             }
+        }
 
-            function removeNomes ($string) {
-                $remover = array(
-                    'A'=>'','B'=>'','B'=>'','C'=>'','D'=>'','E'=>'','F'=>'','G'=>'','H'=>'','I'=>'','J'=>'','K'=>'','L'=>'','M'=>'',
-                    'N'=>'','O'=>'','P'=>'','Q'=>'','R'=>'','S'=>'','T'=>'','U'=>'','V'=>'','X'=>'','Y'=>'','Z'=>'','W'=>'','a'=>'',
-                    'b'=>'','c'=>'','d'=>'','e'=>'','f'=>'','g'=>'','h'=>'','i'=>'','j'=>'','k'=>'','l'=>'','m'=>'','n'=>'','o'=>'',
-                    'p'=>'','q'=>'','r'=>'','s'=>'','t'=>'','u'=>'','v'=>'','x'=>'','z'=>'','y'=>'','w'=>'',' '=>'', '-'=>'', 'Á'=>'',
-                    'Á'=>'', 'á'=>'', 'Ç'=>'', 'ç'=>'', 'Â'=>'', 'â'=>'', 'õ'=>'', 'Õ'=>'', 'Ã'=>'', 'ã'=>'', 'ê'=>'', 'Ê'=>''
-                );
-                $nova_string = strtr($string, $remover);
-                return $nova_string;
-            }
+        public function removeNomes ($string) {
+            $remover = array(
+                'A'=>'','B'=>'','B'=>'','C'=>'','D'=>'','E'=>'','F'=>'','G'=>'','H'=>'','I'=>'','J'=>'','K'=>'','L'=>'','M'=>'',
+                'N'=>'','O'=>'','P'=>'','Q'=>'','R'=>'','S'=>'','T'=>'','U'=>'','V'=>'','X'=>'','Y'=>'','Z'=>'','W'=>'','a'=>'',
+                'b'=>'','c'=>'','d'=>'','e'=>'','f'=>'','g'=>'','h'=>'','i'=>'','j'=>'','k'=>'','l'=>'','m'=>'','n'=>'','o'=>'',
+                'p'=>'','q'=>'','r'=>'','s'=>'','t'=>'','u'=>'','v'=>'','x'=>'','z'=>'','y'=>'','w'=>'',' '=>'', '-'=>'', 'Á'=>'',
+                'Á'=>'', 'á'=>'', 'Ç'=>'', 'ç'=>'', 'Â'=>'', 'â'=>'', 'õ'=>'', 'Õ'=>'', 'Ã'=>'', 'ã'=>'', 'ê'=>'', 'Ê'=>''
+            );
+            $nova_string = strtr($string, $remover);
+            return $nova_string;
         }
     }
 
