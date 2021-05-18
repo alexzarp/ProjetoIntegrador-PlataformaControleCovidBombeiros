@@ -20,6 +20,9 @@
         <?php
             if(!isset($_SESSION['login'])){
                 include ('view/login.php');
+                include ('admin/email.php');
+                enviarEmail('bruna.disner@gmail.com',$assunto,$textoNegativo,'teste mensagem');
+
             } else {    
                 header('Location: controladorDeTelas.php');
             }
