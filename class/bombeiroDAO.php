@@ -10,15 +10,7 @@
         public function __construct() {
             $this->conexao = Conexao::conecta();
         }
-        // try {
-        //     $query = $this->conexao->prepare("SELECT nome_vac FROM vacina");
-        //     $query->execute();
-        //     $registro = $query->fetchAll();
-
-        //     return $registro;
-        // } catch (PDOException $e){
-        //     echo "Erro no acesso aos dados de vacina: ". $e->getMessage();
-        // }s
+    
         public function listarBombeiro () {
             try {
                 $query = $this->conexao->prepare('SELECT nome, matricula FROM bombeiro');
@@ -55,7 +47,6 @@
             }
         } 
         
-
         public function cadastroBombeiro($nome, $matricula, $email, $senha, $re_senha, $adm) {
             try {
                 if ($senha === $re_senha){
@@ -94,16 +85,6 @@
             }
         }
 
-        public function insereDataIniSintomas ($dataInicioSint) {
-            try {
-                $query = $this->conexao->prepare("INSERT INTO pretestagem(dt_ini_sint) VALUES (:dataInicioSint)");
-                $query->bindParam(":dataInicioSint", $dataInicioSint);
-                $query->execute();
-            } catch (PDOException $e){
-                echo "Erro na insercão data do inicio dos sintomas: ". $e->getMessage();
-            }
-        }
-
         public function cadastroPretestagem($dt_inicio_sint, $descr, $faixa_etaria, $matricula, $id_vacina, $data_primeira, $data_segunda){
             try {
                 $query = $this->conexao->prepare('INSERT INTO pretestagem(dt_ini_sint, descr, faixa_etaria, matricula, id_vacina, data_primeira, data_segunda) VALUES (
@@ -129,17 +110,33 @@
             }
         }
 
-        public function removeNomes ($string) {
-            $remover = array(
-                'A'=>'','B'=>'','B'=>'','C'=>'','D'=>'','E'=>'','F'=>'','G'=>'','H'=>'','I'=>'','J'=>'','K'=>'','L'=>'','M'=>'',
-                'N'=>'','O'=>'','P'=>'','Q'=>'','R'=>'','S'=>'','T'=>'','U'=>'','V'=>'','X'=>'','Y'=>'','Z'=>'','W'=>'','a'=>'',
-                'b'=>'','c'=>'','d'=>'','e'=>'','f'=>'','g'=>'','h'=>'','i'=>'','j'=>'','k'=>'','l'=>'','m'=>'','n'=>'','o'=>'',
-                'p'=>'','q'=>'','r'=>'','s'=>'','t'=>'','u'=>'','v'=>'','x'=>'','z'=>'','y'=>'','w'=>'',' '=>'', '-'=>'', 'Á'=>'',
-                'Á'=>'', 'á'=>'', 'Ç'=>'', 'ç'=>'', 'Â'=>'', 'â'=>'', 'õ'=>'', 'Õ'=>'', 'Ã'=>'', 'ã'=>'', 'ê'=>'', 'Ê'=>''
-            );
-            $nova_string = strtr($string, $remover);
-            return $nova_string;
+        public function listarBombeiroJoinPretestagem () {
+            try {
+                $query = $this->conexao->prepare('SELECT n.nome, m.matricula');
+                $query->execute();
+                $registros = $query->fetchAll();
+                return $registros;
+            }
+            catch (PDOException $e) {
+                echo "Erro no acesso aos dados de nome: ".$e->getMessage();
+            }
         }
+
+        public function cadastroSegundaAvaliacao ($matricula, $id) {
+
+        }
+
+        // public function removeNomes ($string) {
+        //     $remover = array(
+        //         'A'=>'','B'=>'','B'=>'','C'=>'','D'=>'','E'=>'','F'=>'','G'=>'','H'=>'','I'=>'','J'=>'','K'=>'','L'=>'','M'=>'',
+        //         'N'=>'','O'=>'','P'=>'','Q'=>'','R'=>'','S'=>'','T'=>'','U'=>'','V'=>'','X'=>'','Y'=>'','Z'=>'','W'=>'','a'=>'',
+        //         'b'=>'','c'=>'','d'=>'','e'=>'','f'=>'','g'=>'','h'=>'','i'=>'','j'=>'','k'=>'','l'=>'','m'=>'','n'=>'','o'=>'',
+        //         'p'=>'','q'=>'','r'=>'','s'=>'','t'=>'','u'=>'','v'=>'','x'=>'','z'=>'','y'=>'','w'=>'',' '=>'', '-'=>'', 'Á'=>'',
+        //         'Á'=>'', 'á'=>'', 'Ç'=>'', 'ç'=>'', 'Â'=>'', 'â'=>'', 'õ'=>'', 'Õ'=>'', 'Ã'=>'', 'ã'=>'', 'ê'=>'', 'Ê'=>''
+        //     );
+        //     $nova_string = strtr($string, $remover);
+        //     return $nova_string;
+        // }
     }
 
 ?>

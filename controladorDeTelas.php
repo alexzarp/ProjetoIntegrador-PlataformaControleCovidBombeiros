@@ -1,5 +1,7 @@
 <?php 
 require_once ('class/bombeiroDAO.php');
+require_once ('admin/email.php');
+
 $b = new BombeiroDAO();
 session_start();
 
@@ -77,6 +79,10 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/cadastroSegundaAvaliacao.css';
             $_SESSION['caminhoDeFundo'] = 'view/cadastroSegundaAvaliacao.php';
             include ("view/layout/fundo.php");
+
+            if(isset($_POST['submete_seg'])){
+                
+            }
         break;
 
         case 'pretestagem':
@@ -90,9 +96,7 @@ else {
                     $_POST['vacina'] = NULL;
                     $_POST['datap'] = NULL;
                     $_POST['datas'] = NULL;
-                } elseif (!isset($_POST['vacinas'])) {  
-                    $_POST['datas'] = NULL;
-                }
+                }   
                 $b->cadastroPretestagem($_POST['data'], $_POST['sintomas'],$_POST['idade'],$_POST['bombeiro'],$_POST['vacina'],$_POST['datap'],$_POST['datas']);
             }
         break;

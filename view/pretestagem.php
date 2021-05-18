@@ -70,11 +70,4 @@
     </form>
 
 </div>
-<!-- <?php
-    $teste = 'ALEX sandro - →☻';
-    echo $teste."<br>";
-    $teste = $b->removeNomes($teste);
-    echo $teste;
-?> -->
-
-<script src="assets/JS/function.js"></script>
+<!-- <script src="assets/JS/function.js"></script> -->

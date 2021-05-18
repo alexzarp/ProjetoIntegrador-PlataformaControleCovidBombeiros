@@ -4,8 +4,10 @@
     <form onsubmit="return validateForm3()"  method="POST">
         <select name="bombeiro" id="name">
             <option value="opcao" selected>Nome - Cadastro do bombeiro já deve constar no sistema</option>
-            <?php foreach ($bombeiros_cadastrados as $opcao) 
-                echo "<option value=".$opcao.">"
+            <?php
+                $reg = $b->listarBombeiro();
+                foreach ($reg as $key)
+                    echo ('<option value='.$key['matricula'].'>'.$key['nome'].' - '.$key['matricula'].'</option>');
             ?>
         </select> <br>
         
