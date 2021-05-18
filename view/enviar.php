@@ -1,7 +1,7 @@
 <?php
     include "PHPMailer-master/PHPMailerAutoload.php";
-    function enviarEmail($email){
-
+    function enviarEmail(){
+        
         $mail = new PHPMailer;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';  
@@ -17,13 +17,13 @@
         //nome do remetente
         $mail->FromName = 'Teste';
         // endereço de email do destinatario
-        $mail->addAddress('informatica6bbm@gmail.com');
-        $mail->addAddress($email);
+        $mail->addAddress('alexamodtest@gmail.com');
+        //$mail->addAddress($email);
         //Assunto do email
         $mail->Subject = 'Resultado do teste';
         //Mensagem que vai no corpo do e-mail
         $mail->Body = '<h1>Informamos que o resultado do seu teste deu negativo. </h1>';
-        
+        $mail->SMTDebug = 2;
         if($mail->Send()):
             echo 'Enviado com sucesso !';
         else:
@@ -31,6 +31,8 @@
         endif;
 
     }
+    
+
    
 
 ?>
