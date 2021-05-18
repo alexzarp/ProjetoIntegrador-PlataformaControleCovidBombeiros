@@ -65,6 +65,7 @@ else {
                 }
                 unset($_SESSION['adm']);
             }
+            enviarEmail('bruna.disner@gmail.com','Teste de e-mail', '<strong>Em negrito</strong>', 'Sem negrito');
         break;
 
         case 'acompanhamento':

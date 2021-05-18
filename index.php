@@ -20,8 +20,6 @@
         <?php
             if(!isset($_SESSION['login'])){
                 include ('view/login.php');
-                include('view/enviar.php');
-                enviarEmail();
             } else {    
                 header('Location: controladorDeTelas.php');
             }
