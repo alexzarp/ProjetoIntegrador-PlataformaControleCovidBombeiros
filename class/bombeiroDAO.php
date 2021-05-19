@@ -2,6 +2,7 @@
 
     require_once "conexao.php";
     require_once "bombeiro.php";
+    include "admin/email.php";
 
     class BombeiroDAO {
 
@@ -112,7 +113,7 @@
 
         public function listarBombeiroJoinPretestagem () {
             try {
-                $query = $this->conexao->prepare('SELECT n.nome, m.matricula');
+                $query = $this->conexao->prepare('SELECT DISTINCT b.nome, b.matricula FROM bombeiro b JOIN pretestagem p ON b.matricula = p.matricula;');
                 $query->execute();
                 $registros = $query->fetchAll();
                 return $registros;
@@ -121,9 +122,89 @@
                 echo "Erro no acesso aos dados de nome: ".$e->getMessage();
             }
         }
+        public function cadastroDoResultadoDaTestagem ($tipo_teste, $dt_teste, $result_teste, $matricula) {
+            try {
+                $query = $this->conexao->prepare('UPDATE pretestagem SET
+                                                 tipo_teste = :tipo_teste,
+                                                 dt_teste = :dt_teste,
+                                                 result_teste = :result_teste
+                                                 WHERE pretestagem.matricula = :matricula;');
+                $query->bindParam(":tipo_teste", $tipo_teste);
+                $query->bindParam(":dt_teste", $dt_teste);
+                $query->bindParam(":result_teste", $result_teste);
+                $query->bindParam(":matricula", $matricula);
+                $query->execute();
+                echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+                // echo $matricula;
 
-        public function cadastroSegundaAvaliacao ($matricula, $id) {
+                try {
+                    $query = $this->conexao->prepare('SELECT nome, email FROM bombeiro WHERE :matricula = matricula');
+                    $query->bindParam(":matricula", $matricula);
+                    $query->execute();
+                    $registros = $query->fetchAll();
 
+                    $textoPositivo = ("
+                        <html>
+                            <head>
+                                <style>           
+                                </style>
+                            </head>
+                            
+                            <body>
+                                {$registros[0]["nome"]}
+                                <img src='https://upload.wikimedia.org/wikipedia/commons/0/09/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png'>
+                                <h2>Email enviado automaticamente pelo sistema de controle de casos do covid do 6° BBM de Chapecó.</h2>
+                                <h3>Informamos que seu teste deu: <b>POSITIVO</b></h3>
+                                <h3>Em caso de dúvidas entre em contato com os resposáveis pelo telefone
+                                (49)2049-7661.</h3> 
+                                <p>Não responder esse email</p>
+                            </body>
+                            <footer>
+                                <p>Sistema desenvolvido por Alex Sandro e Bruna Gabriela.</p><br>
+                                <p>6° BBM - Chapecó - SC.</p>
+                            </footer>
+                        </html>
+                        
+                        ");
+                    
+                    $textoNegativo = ("
+                        <html>
+                            <head>
+                                <style>  
+                                </style>
+                            </head>
+                                
+                            <body>
+                                {$registros[0]["nome"]}
+                                <img src='https://upload.wikimedia.org/wikipedia/commons/0/09/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png'>
+                                <h2>Email enviado automaticamente pelo sistema de controle de casos do covid do 6° BBM de Chapecó.</h2>
+                                <h3>Informamos que seu teste deu: <b>NEGATIVO.</b></h3>
+                                <h3>Em caso de dúvidas entre em contato com os resposáveis pelo telefone
+                                (49)2049-7661.</h3> 
+                                <p>Não responder esse email</p>
+                                <footer>
+                                    <p>Sistema desenvolvido por Alex Sandro e Bruna Gabriela.</p><br>
+                                    <p>6° BBM - Chapecó - SC.</p>
+                                </footer>
+                            </body>
+                        </html>
+                    
+                    ");
+                    $assunto = "Resultado teste covid-19 - Corpo de Bombeiros Militar de Santa Catarina.";                    
+
+                    if ($result_teste == 0) {
+                        enviarEmail($registros[0]['email'], $assunto, $textoNegativo, 'Essa mensagem não é visível, entre em contato com o adm');
+                    } else {
+                        enviarEmail($registros[0]['email'], $assunto, $textoPositivo, 'Essa mensagem não é visível, entre em contato com o adm');
+                    }
+                }
+                catch (PDOException $e){
+                    echo "Erro ao enviar email para ".$matricula.": ".$e->getMessage();
+                }
+            }
+            catch (PDOException $e) {
+                echo "Erro no acesso aos dados de nome: ".$e->getMessage();
+            }
         }
 
         // public function removeNomes ($string) {

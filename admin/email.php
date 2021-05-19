@@ -29,9 +29,9 @@
             $mail->AltBody = $altMensagem;
         
             if($mail->send()) {
-                echo 'Email enviado com sucesso';
+                echo '<strong id="inserido">Email enviado com sucesso</strong>';
             } else {
-                echo 'Email nao enviado';
+                echo '<strong id="erro">Email nao enviado</strong>';
             }
             
         } catch (Exception $e) {

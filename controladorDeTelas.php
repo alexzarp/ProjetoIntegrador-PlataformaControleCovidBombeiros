@@ -57,7 +57,8 @@ else {
             include ("view/layout/fundo.php");
             if (isset($_SESSION['adm'])){
                 if (isset($_POST['email']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['re_senha'])) {
-                    $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']), $_SESSION['adm']);                }
+                    $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']), $_SESSION['adm']);                
+                }
             } else {
                 $_SESSION['adm'] = false;
                 if (isset($_POST['email']) && isset($_POST['matricula']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['re_senha'])) {
@@ -65,7 +66,6 @@ else {
                 }
                 unset($_SESSION['adm']);
             }
-            enviarEmail('bruna.disner@gmail.com','Teste de e-mail', '<strong>Em negrito</strong>', 'Sem negrito');
         break;
 
         case 'acompanhamento':
@@ -81,9 +81,9 @@ else {
             $_SESSION['caminhoDeFundo'] = 'view/cadastroSegundaAvaliacao.php';
             include ("view/layout/fundo.php");
 
-            if(isset($_POST['submete_seg'])){
+            // if(isset($_POST['submete_seg'])){
                 
-            }
+            // }
         break;
 
         case 'pretestagem':
@@ -107,6 +107,10 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/resultado.css';
             $_SESSION['caminhoDeFundo'] = 'view/resultado.php';
             include ("view/layout/fundo.php");
+
+            if (isset($_POST['submetido'])) {
+                $b->cadastroDoResultadoDaTestagem($_POST['teste'], $_POST['data'], $_POST['resultado'], $_POST['bombeiro']);
+            }
         break;
 
         case 're_senha':
