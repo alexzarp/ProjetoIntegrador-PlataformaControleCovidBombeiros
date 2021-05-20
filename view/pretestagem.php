@@ -25,7 +25,7 @@
             <label for="idade">Faixa-etária:</label>
             <select id="idade" name="idade">
                 <option>Selecione</option>
-                <option>20 - 29 anos</option>
+                <option>18 - 29 anos</option>
                 <option>30 - 39 anos</option>
                 <option>40 - 49 anos</option>
                 <option>50 - 59 anos</option>
