@@ -236,12 +236,7 @@
                     </html>
                     ");
                     $assunto = "Resultado teste covid-19 - Corpo de Bombeiros Militar de Santa Catarina.";                    
-
-                    if ($result_teste == 0) {
-                        enviarEmail($registros[0]['email'], $assunto, $textoHTML, 'Essa mensagem não é visível, entre em contato com o adm');
-                    } else {
-                        enviarEmail($registros[0]['email'], $assunto, $textoHTML, 'Essa mensagem não é visível, entre em contato com o adm');
-                    }
+                    enviarEmail($registros[0]['email'], $assunto, $textoHTML, 'Essa mensagem não é visível, entre em contato com o adm');
                 }
                 catch (PDOException $e){
                     echo "Erro ao enviar email para ".$matricula.": ".$e->getMessage();
