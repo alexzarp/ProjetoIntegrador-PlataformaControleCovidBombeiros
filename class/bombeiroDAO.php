@@ -122,6 +122,7 @@
                 echo "Erro no acesso aos dados de nome: ".$e->getMessage();
             }
         }
+
         public function cadastroDoResultadoDaTestagem ($tipo_teste, $dt_teste, $result_teste, $matricula) {
             try {
                 $query = $this->conexao->prepare('UPDATE pretestagem SET
@@ -135,68 +136,107 @@
                 $query->bindParam(":matricula", $matricula);
                 $query->execute();
                 echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
-                // echo $matricula;
 
                 try {
                     $query = $this->conexao->prepare('SELECT nome, email FROM bombeiro WHERE :matricula = matricula');
                     $query->bindParam(":matricula", $matricula);
                     $query->execute();
                     $registros = $query->fetchAll();
-
-                    $textoPositivo = ("
-                        <html>
-                            <head>
-                                <style>           
-                                </style>
-                            </head>
+                    
+                    if ($result_teste == 0) {
+                        $texto = 'NEGATIVO';
+                        $classe = 'verde';
+                    } else {
+                        $texto = 'POSITIVO';
+                        $classe = 'vermelho';
+                    }
+                    $textoHTML = ("
+                    <html>
+                    <head>
+                        <style>
+                            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+                            * {
+                                padding: 0;
+                                border: 0;
+                                margin: 0;
+                                font-family: 'Roboto', sans-serif;
+                            }
+                            header {
+                                background-color: red;
+                                padding: 1%;
+                                display: flex;
+                                justify-content: space-between;
+                            }
+                            main {
+                                background-color: #BABAB5;
+                                padding: 1%;
+                            }
+                            #logo {
+                                width: 10%;
+                                height: 10%;
+                            }
+                            #superior {
+                                color: white;
+                                padding-top: 3.4%;
+                                padding-bottom: 3.4%;
+                                padding-left: 3.4%;
+                            }
+                            .verde {
+                                color: green;
+                            }
+                            .vermelho {
+                                color: red;
+                            }
+                            footer {
+                                background-color: gray;
+                                padding: 1%;
+                            }
+                            a {
+                                text-decoration: none;
+                            }
+                            a:link, a:visited {
+                                color: blue;
+                                font-weight: bold;
+                            }
+                            .git {
+                                width: 1%;
+                            }
+                            #nome {
+                                font-weight: 900;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <header>
+                            <img id='logo' src='https://upload.wikimedia.org/wikipedia/commons/0/09/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png' alt='Imagem bombeiros'>
+                            <h1 id='superior'>Sistema de controle da Covid - 19</h1>
+                        </header>
+                        <main>
+                            <h2>Email enviado automaticamente pelo sistema de controle de casos do covid do 6° BBM de Chapecó.</h2><br>
+                            <h3>Sr. {$registros[0]['nome']}, informamos que seu teste deu: <strong class='{$classe}'>{$texto}</strong>.</h3> <br>
+                            <h3>Em caso de dúvidas entre em contato com os resposáveis pelo telefone
+                            (49)2049-7661.</h3>
+                            <p>Não responder esse email</p>
+                        </main>
+                    
+                        <footer> 
+                            <p>Sistema desenvolvido por 
                             
-                            <body>
-                                {$registros[0]["nome"]}
-                                <img src='https://upload.wikimedia.org/wikipedia/commons/0/09/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png'>
-                                <h2>Email enviado automaticamente pelo sistema de controle de casos do covid do 6° BBM de Chapecó.</h2>
-                                <h3>Informamos que seu teste deu: <b>POSITIVO</b></h3>
-                                <h3>Em caso de dúvidas entre em contato com os resposáveis pelo telefone
-                                (49)2049-7661.</h3> 
-                                <p>Não responder esse email</p>
-                            </body>
-                            <footer>
-                                <p>Sistema desenvolvido por Alex Sandro e Bruna Gabriela.</p><br>
-                                <p>6° BBM - Chapecó - SC.</p>
-                            </footer>
-                        </html>
-                        
-                        ");
+                            <a href='https://github.com/alexzarp'>
+                            <img class='git' src='http://pngimg.com/uploads/github/github_PNG40.png'
+                            alt='Logo GitHub'>Alex Sandro</a>
+                            e
+                            <a href='https://github.com/Brunadisner'>
+                            <img class='git' src='http://pngimg.com/uploads/github/github_PNG40.png'
+                            alt='Logo GitHub'>Bruna Gabriela</a>.</p><br>
                     
-                    $textoNegativo = ("
-                        <html>
-                            <head>
-                                <style>  
-                                </style>
-                            </head>
-                                
-                            <body>
-                                {$registros[0]["nome"]}
-                                <img src='https://upload.wikimedia.org/wikipedia/commons/0/09/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png'>
-                                <h2>Email enviado automaticamente pelo sistema de controle de casos do covid do 6° BBM de Chapecó.</h2>
-                                <h3>Informamos que seu teste deu: <b>NEGATIVO.</b></h3>
-                                <h3>Em caso de dúvidas entre em contato com os resposáveis pelo telefone
-                                (49)2049-7661.</h3> 
-                                <p>Não responder esse email</p>
-                                <footer>
-                                    <p>Sistema desenvolvido por Alex Sandro e Bruna Gabriela.</p><br>
-                                    <p>6° BBM - Chapecó - SC.</p>
-                                </footer>
-                            </body>
-                        </html>
-                    
+                            <p>6° BBM - Chapecó - SC.</p>
+                        </footer>
+                    </body>
+                    </html>
                     ");
                     $assunto = "Resultado teste covid-19 - Corpo de Bombeiros Militar de Santa Catarina.";                    
-
-                    if ($result_teste == 0) {
-                        enviarEmail($registros[0]['email'], $assunto, $textoNegativo, 'Essa mensagem não é visível, entre em contato com o adm');
-                    } else {
-                        enviarEmail($registros[0]['email'], $assunto, $textoPositivo, 'Essa mensagem não é visível, entre em contato com o adm');
-                    }
+                    enviarEmail($registros[0]['email'], $assunto, $textoHTML, 'Essa mensagem não é visível, entre em contato com o adm');
                 }
                 catch (PDOException $e){
                     echo "Erro ao enviar email para ".$matricula.": ".$e->getMessage();
