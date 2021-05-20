@@ -9,4 +9,6 @@
     grid-template-columns: 50% 50%;
    
 }
-
+#ocultar{
+    display: none;
+}

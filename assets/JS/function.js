@@ -161,3 +161,18 @@ function validateForm5(){
         return false;
     }
 }
+
+    
+    function exibir(){
+        document.getElementById("ocultar").style.display = "block";
+    }
+    function ocultar(){
+        document.getElementById("ocultar").style.display = "none";
+    }
+
+    
+
+
+
+
+

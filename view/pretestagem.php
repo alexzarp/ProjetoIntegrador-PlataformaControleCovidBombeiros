@@ -22,12 +22,26 @@
         </div>
         <br>
         <div>
+            <label for="idade">Faixa-etária:</label>
+            <select id="idade" name="idade">
+                <option>Selecione</option>
+                <option>20 - 29 anos</option>
+                <option>30 - 39 anos</option>
+                <option>40 - 49 anos</option>
+                <option>50 - 59 anos</option>
+                <option>60 - 69 anos</option>
+                <option>70 - 79 anos</option>
+            </select>
+        </div>  
+        <br>
+        <div>
             <label>Realizou a vacina da covid-19:</label>
             <br>
-            <label><input type="radio" name="vacina" value="s" id="radio">Sim</label><br>
-            <label><input type="radio" name="vacina" value="n" id="radio">Não</label><br>
+            <label><input type="radio" name="vacina" value="Sim" id="radio" onclick="exibir()">Sim</label><br>
+            <label><input type="radio" name="vacina" value="Não" id="radio" onclick="ocultar()">Não</label><br>
         </div>
         <br>
+    <div id="ocultar">
         <div>
             <label for="tipoV">Vacina:</label>
             <select id="tipo" name="vacina">
@@ -51,20 +65,8 @@
                 <input type="date" id="data" name="datas" placeholder="Data da Segunda dose:">
             </div>
         </div>
+    </div>
         
-        <br>
-        <div>
-            <label for="idade">Faixa-etária:</label>
-            <select id="idade" name="idade">
-                <option>Selecione</option>
-                <option>20 - 29 anos</option>
-                <option>30 - 39 anos</option>
-                <option>40 - 49 anos</option>
-                <option>50 - 59 anos</option>
-                <option>60 - 69 anos</option>
-                <option>70 - 79 anos</option>
-            </select>
-        </div>  
         <input type="submit" value="Submeter Pré-testagem " name='submete_pre' id="submeter">
         
     </form>
