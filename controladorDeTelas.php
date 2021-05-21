@@ -80,9 +80,9 @@ else {
             $_SESSION['caminhoDeFundo'] = 'view/cadastroSegundaAvaliacao.php';
             include ("view/layout/fundo.php");
 
-            // if(isset($_POST['submete_seg'])){
-                
-            // }
+            if(isset($_POST['submete_seg'])){
+                $b->cadastroSegundaAvaliacao($_POST['bombeiro_id'], $_POST['data_ava'],$_POST['prevista'], $_POST['sintomas'], $_POST['retorno']);
+            }
         break;
 
         case 'pretestagem':

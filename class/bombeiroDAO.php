@@ -113,7 +113,7 @@
 
         public function listarBombeiroJoinPretestagem () {
             try {
-                $query = $this->conexao->prepare('SELECT DISTINCT b.nome, b.matricula FROM bombeiro b JOIN pretestagem p ON b.matricula = p.matricula;');
+                $query = $this->conexao->prepare('SELECT DISTINCT b.nome, b.matricula, p.id FROM bombeiro b JOIN pretestagem p ON b.matricula = p.matricula;');
                 $query->execute();
                 $registros = $query->fetchAll();
                 return $registros;
@@ -151,8 +151,13 @@
                         $classe = 'vermelho';
                     }
                     $textoHTML = ("
+                    <!DOCTYPE html>
                     <html>
                     <head>
+                        <meta charset='utf-8'>
+                        <meta name='author' content='Alex Sandro Zarpelon, Bruna Gabriela Disner'>
+                        <meta name='description' content='Plataforma de controle Covid-19'>
+                        <meta name='keywords' content='Bombeiros, SC, controle Covid-19, Bombeiros Chapecó'>
                         <style>
                             @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
                             * {
@@ -247,17 +252,132 @@
             }
         }
 
-        // public function removeNomes ($string) {
-        //     $remover = array(
-        //         'A'=>'','B'=>'','B'=>'','C'=>'','D'=>'','E'=>'','F'=>'','G'=>'','H'=>'','I'=>'','J'=>'','K'=>'','L'=>'','M'=>'',
-        //         'N'=>'','O'=>'','P'=>'','Q'=>'','R'=>'','S'=>'','T'=>'','U'=>'','V'=>'','X'=>'','Y'=>'','Z'=>'','W'=>'','a'=>'',
-        //         'b'=>'','c'=>'','d'=>'','e'=>'','f'=>'','g'=>'','h'=>'','i'=>'','j'=>'','k'=>'','l'=>'','m'=>'','n'=>'','o'=>'',
-        //         'p'=>'','q'=>'','r'=>'','s'=>'','t'=>'','u'=>'','v'=>'','x'=>'','z'=>'','y'=>'','w'=>'',' '=>'', '-'=>'', 'Á'=>'',
-        //         'Á'=>'', 'á'=>'', 'Ç'=>'', 'ç'=>'', 'Â'=>'', 'â'=>'', 'õ'=>'', 'Õ'=>'', 'Ã'=>'', 'ã'=>'', 'ê'=>'', 'Ê'=>''
-        //     );
-        //     $nova_string = strtr($string, $remover);
-        //     return $nova_string;
-        // }
+        public function cadastroSegundaAvaliacao ($fk_id_pretestagem, $dt_teste, $dt_prevista, $comentario, $retorno) {
+            try {
+                $query = $this->conexao->prepare('INSERT INTO avalia_retorno(fk_id_pretestagem, dt_teste, dt_prevista, comentario) VALUES (:fk_id_pretestagem, :dt_teste, :dt_prevista, :comentario)');
+                $query->bindParam(":fk_id_pretestagem", $fk_id_pretestagem);
+                $query->bindParam(":dt_prevista", $dt_prevista);
+                $query->bindParam(":comentario", $comentario);
+                $query->bindParam(":dt_teste", $dt_teste);
+                $query->execute();
+                echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
+
+                try {
+                    $query = $this->conexao->prepare('SELECT DISTINCT b.nome, b.email, a.dt_prevista, a.comentario FROM
+                                                      bombeiro b JOIN pretestagem p ON p.matricula = b.matricula JOIN
+                                                      avalia_retorno a ON p.id = a.fk_id_pretestagem
+                                                      WHERE a.comentario = :comentario;');
+                    $query->bindParam(":comentario", $comentario);
+                    $query->execute();
+                    $registros = $query->fetchAll();
+                    if ($retorno == 1) {
+                        $texto = 'APROVADO';
+                        $classe = 'verde';
+                    } else {
+                        $texto = 'REPROVADO';
+                        $classe = 'vermelho';
+                    }   
+                    $titulo = 'Informe sobre a Segunda testagem';
+                    $mensagemHTML = ("
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <meta charset='utf-8'>
+                        <meta name='author' content='Alex Sandro Zarpelon, Bruna Gabriela Disner'>
+                        <meta name='description' content='Plataforma de controle Covid-19'>
+                        <meta name='keywords' content='Bombeiros, SC, controle Covid-19, Bombeiros Chapecó'>
+                        <style>
+                            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+                            * {
+                                padding: 0;
+                                border: 0;
+                                margin: 0;
+                                font-family: 'Roboto', sans-serif;
+                            }
+                            header {
+                                background-color: red;
+                                padding: 1%;
+                                display: flex;
+                                justify-content: space-between;
+                            }
+                            main {
+                                background-color: #BABAB5;
+                                padding: 1%;
+                            }
+                            #logo {
+                                width: 10%;
+                                height: 10%;
+                            }
+                            #superior {
+                                color: white;
+                                padding-top: 3.4%;
+                                padding-bottom: 3.4%;
+                                padding-left: 3.4%;
+                            }
+                            .verde {
+                                color: green;
+                            }
+                            .vermelho {
+                                color: red;
+                            }
+                            footer {
+                                background-color: gray;
+                                padding: 1%;
+                            }
+                            a {
+                                text-decoration: none;
+                            }
+                            a:link, a:visited {
+                                color: blue;
+                                font-weight: bold;
+                            }
+                            .git {
+                                width: 1%;
+                            }
+                            #nome {
+                                font-weight: 900;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <header>
+                            <img id='logo' src='https://upload.wikimedia.org/wikipedia/commons/0/09/Logotipo_de_marca_do_Corpo_de_Bombeiros_Militar_de_Santa_Catarina.png' alt='Imagem bombeiros'>
+                            <h1 id='superior'>Sistema de controle da Covid - 19</h1>
+                        </header>
+                        <main>
+                            <h2>Email enviado automaticamente pelo sistema de controle de casos do covid do 6° BBM de Chapecó.</h2><br>
+                            <h3>Sr. {$registros[0]['nome']}, informamos que seu retorno foi <strong class='{$classe}'>{$texto}</strong>.</h3>
+                            <h3><strong>Comentários sobre o caso: </strong>{$registros[0]['comentario']}</h3>
+                            <h3><strong>Data para o retorno: </strong>{$registros[0]['dt_prevista']}</h3><br>
+                            <h3>Em caso de dúvidas entre em contato com os resposáveis pelo telefone
+                            (49)2049-7661.</h3>
+                            <p>Não responder esse email</p>
+                        </main>
+
+                        <footer> 
+                            <p>Sistema desenvolvido por 
+                            
+                            <a href='https://github.com/alexzarp'>
+                            <img class='git' src='http://pngimg.com/uploads/github/github_PNG40.png'
+                            alt='Logo GitHub'>Alex Sandro</a>
+                            e
+                            <a href='https://github.com/Brunadisner'>
+                            <img class='git' src='http://pngimg.com/uploads/github/github_PNG40.png'
+                            alt='Logo GitHub'>Bruna Gabriela</a>.</p><br>
+
+                            <p>6° BBM - Chapecó - SC.</p>
+                        </footer>
+                    </body>
+                    </html>
+                    ");
+                    enviarEmail($registros[0]['email'], $titulo, $mensagemHTML, 'O local em que você está lendo este E-mail tem problemas com a tecnologia HTML, entre em contato com os responsáveis pelo resultado.');
+                } catch (PDOException $e) {
+                    echo "<strong id='erro'>Algo de errado ocorreu ao enviar o e-mail</strong>".$e->getMessage();
+                }
+            } catch (PDOException $e) {
+                echo 'Erro na inserssão de Segunda Avaliação: '.$e->getMessage();
+            }
+        }
     }
 
 ?>
