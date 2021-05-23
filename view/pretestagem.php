@@ -3,7 +3,7 @@
     <form id="form" name="formp" onsubmit="return validateForm5()" method="POST" action="controladorDeTelas.php?acao=pretestagem">
         <div>
             <select name="bombeiro" id="nome" required>
-                <option value="opcao">Nome - Cadastro do bombeiro já deve constar no sistema</option>
+                <option value="opcao">Selecione seu nome</option>
                 <?php            
                     $reg = $b->listarBombeiro();
                     foreach ($reg as $key)
