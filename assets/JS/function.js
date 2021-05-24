@@ -74,7 +74,6 @@ function validateForm2(){
 }
 
 function validateForm3(){
-    var nome = document.getElementById("nome").value;
     var sintomas = document.getElementById("sintomas").value;
     var radio = document.getElementsByName("retorno");
     escolhe = -1;
@@ -92,8 +91,9 @@ function validateForm3(){
         return false;
         
     }
-    if (nome == null || nome == "" || nome.indexOf(" ") == -1){
-        alert("O nome completo deve ser preenchido");
+    if(formS.bombeiro_id.selectedIndex==0 || formS.bombeiro.selectedIndex("Nome - Cadastro já deve constar no sistema")){
+        alert("Por favor selecione um nome");
+        formS.bombeiro_id.focus();
         return false;
     }
 
@@ -105,7 +105,32 @@ function validateForm3(){
 function validateForm4(){
     //var nome = document.getElementById("name").value;
     var radio = document.getElementsByName("resultado");
-    var tipo = document.getElementsByName("teste");
+    escolhe = -1;
+    for (var i = radio.length -1; i > -1; i--) {
+        if (radio[i].checked) {
+            escolhe = i;
+        }
+    }
+    if(escolhe==-1){
+        alert("selecione o resultado do teste");
+        return false;
+    }
+    if(formR.teste.selectedIndex==0){
+        alert("Selecione o tipo do teste");
+        formR.teste.focus();
+        return false;
+    }
+    if(formR.bombeiro.selectedIndex==0 || formR.bombeiro.selectedIndex("Nome - Cadastro já deve constar no sistema")){
+        alert("Por favor selecione um nome");
+        formR.bombeiro.focus();
+        return false;
+    }
+    
+}
+
+function validateForm5(){
+    var sintomas = document.getElementById("sintomas").value;
+    var radio = document.getElementsByName("vacina");
     escolhe = -1;
     for (var i = radio.length -1; i > -1; i--) {
         if (radio[i].checked) {
@@ -116,33 +141,9 @@ function validateForm4(){
         alert("Por favor escolha uma opção");
         return false;
     }
-    if (tipo.value == " " || tipo.value == "Selecione"){
-        alert("Escolha uma opção.");
-        return false;
-    }
-}
-
-function validateForm5(){
-    var sintomas = document.getElementById("sintomas").value;
-    //var radio = document.getElementsByName("vacina");
-    /*escolhe = -1;
-    for (var i = radio.length -1; i > -1; i--) {
-        if (radio[i].checked) {
-            escolhe = i;
-        }
-    }*/
-    // if(escolhe==-1){
-    //     alert("Por favor escolha uma opção");
-    //     return false;
-    // }
-   /*if(form.bombeiro.selectedIndex == 0 || escolhe == -1){
-        alert("Selecione um bombeiro!");
-        form.st_contrato.focus();
-        return false;
-    }*/
-    if(formp.bombeiro.selectedIndex==0){
+    if(formp.bombeiro.selectedIndex==0 || formS.bombeiro.selectedIndex("Selecione seu nome")){
         alert("Por favor selecione seu nome");
-        formp.idade.focus();
+        formp.bombeiro.focus();
         return false;
     }
     if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){

@@ -1,9 +1,9 @@
 <div>
     <h1>Cadastro de segunda avaliação</h1>
 
-    <form onsubmit="return validateForm3()" method="POST" action="controladorDeTelas.php?acao=cadastro_segunda_avaliacao">
+    <form name="formS"onsubmit="return validateForm3()" method="POST" action="controladorDeTelas.php?acao=cadastro_segunda_avaliacao">
         <select name="bombeiro_id" id="name">
-            <option value="opcao" selected>Nome - Cadastro do bombeiro já deve constar no sistema</option>
+            <option value="opcao" selected>Nome - Cadastro já deve constar no sistema</option>
             <?php
                 $reg = $b->listarBombeiroJoinPretestagem();
                 foreach ($reg as $key)
@@ -14,7 +14,7 @@
         Data de realização da segunda avaliação:
         <input type="date" name="data_ava" required> <br><!-- Desabilitei, depois discutiremos -->
 
-        <textarea name="sintomas" id="sintomas" rows="10" placeholder="Sintomas observados ou diagnosticados"></textarea>
+        <textarea name="sintomas" id="sintomas" maxlength="1000" rows="10" placeholder="Sintomas observados ou diagnosticados"></textarea>
 
         <div id="grid_cad">
             <div id="sim_nao">

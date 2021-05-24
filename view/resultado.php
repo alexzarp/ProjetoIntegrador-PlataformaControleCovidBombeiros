@@ -1,9 +1,9 @@
 <div class="resultadoTestagem">
     <h1>Cadastro do resultado da testagem</h1>    
-    <form id="form" onsubmit="return validateForm4()" method="POST" action="controladorDeTelas.php?acao=resultado">
+    <form id="form" name="formR" onsubmit="return validateForm4()" method="POST" action="controladorDeTelas.php?acao=resultado">
     <div>
             <select name="bombeiro" id="name">
-                <option value="opcao" selected>Nome - Cadastro do bombeiro já deve constar no sistema</option>
+                <option value="opcao" selected>Nome - Cadastro já deve constar no sistema</option>
                 <?php
                 $reg = $b->listarBombeiroJoinPretestagem();
                 foreach ($reg as $key)
@@ -19,8 +19,9 @@
         </div>
         <br>
         <div>
-            <label for="id_data" type="date">Data do teste:</label>
+            <label for="id_data" type="date">Data do teste:
             <input type="date" id="data" name="data" placeholder="Data do teste" required>
+            </label>
         </div>
         
         <br>

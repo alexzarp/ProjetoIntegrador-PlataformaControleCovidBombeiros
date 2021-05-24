@@ -18,7 +18,7 @@
         </div>
         <br>
         <div>
-            <textarea id="sintomas" name="sintomas" placeholder="Descreva seus sintomas:"></textarea>
+            <textarea id="sintomas" name="sintomas" placeholder="Descreva seus sintomas:" maxlength="1000"></textarea>
         </div>
         <br>
         <div>

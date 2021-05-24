@@ -269,7 +269,9 @@
                                                       WHERE a.comentario = :comentario;');
                     $query->bindParam(":comentario", $comentario);
                     $query->execute();
-                    $registros = $query->fetchAll();
+                    echo '<pre>';
+                    var_dump($registros = $query->fetchAll());
+                    echo '</pre>';
                     if ($retorno == 1) {
                         $texto = 'APROVADO';
                         $classe = 'verde';
