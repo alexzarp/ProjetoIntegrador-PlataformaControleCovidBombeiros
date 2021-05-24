@@ -113,7 +113,11 @@
 
         public function listarBombeiroJoinPretestagem () {
             try {
-                $query = $this->conexao->prepare('SELECT DISTINCT b.nome, b.matricula, p.id FROM bombeiro b JOIN pretestagem p ON b.matricula = p.matricula;');
+                $query = $this->conexao->prepare('SELECT DISTINCT b.nome, b.matricula, p.id FROM bombeiro b JOIN pretestagem p
+                                                  ON b.matricula = p.matricula');
+                                                //    WHERE p.dt_ini_sint BETWEEN ":hoje" AND ":antes"
+                // $query->bindParam(":hoje", converteBarras(date('Y/m/d')));
+                // $query->bindParam(":antes", converteBarras(date("Y/m/d",strtotime(date("Y-m-d")."-2 week"))));
                 $query->execute();
                 $registros = $query->fetchAll();
                 return $registros;
@@ -266,8 +270,9 @@
                     $query = $this->conexao->prepare('SELECT DISTINCT b.nome, b.email, a.dt_prevista, a.comentario FROM
                                                       bombeiro b JOIN pretestagem p ON p.matricula = b.matricula JOIN
                                                       avalia_retorno a ON p.id = a.fk_id_pretestagem
-                                                      WHERE a.comentario = :comentario;');
+                                                      WHERE a.comentario = :comentario AND a.fk_id_pretestagem = :fk_id_pretestagem;');
                     $query->bindParam(":comentario", $comentario);
+                    $query->bindParam(":fk_id_pretestagem", $fk_id_pretestagem);
                     $query->execute();
                     $registros = $query->fetchAll();
                     if ($retorno == 1) {
@@ -378,6 +383,14 @@
                 echo 'Erro na inserssão de Segunda Avaliação: '.$e->getMessage();
             }
         }
+    }
+
+    function converteBarras ($string) {
+        $remover = array(
+            '/'=>'-', '\\'=>'-'
+        );
+        $nova_string = strtr($string, $remover);
+        return $nova_string;
     }
 
 ?>
