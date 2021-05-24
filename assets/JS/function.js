@@ -138,30 +138,23 @@ function validateForm5(){
         }
     }
     if(escolhe==-1){
-        alert("Por favor escolha uma opção");
+        alert("Escolha a opção da realização da vacina");
         return false;
     }
-    if(formp.bombeiro.selectedIndex==0 || formp.bombeiro.selectedIndex("Selecione seu nome")){
-        alert("Por favor selecione seu nome");
-        formp.bombeiro.focus();
-        return false;
-    }
+    
     if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){
         alert("Os sintomas devem ser preenchidos");
         return false;
     }
-    if(formp.idade.selectedIndex==0 || formp.bombeiro.selectedIndex("Selecione")){
-        alert("Selecione a faixa etária");
+    if(formp.idade.selectedIndex==0){
+        alert("Por favor selecione a faixa-etária");
         formp.idade.focus();
         return false;
     }
     
-    /*if (tipo2.value == " " || tipo2.value == "Selecione"){
-        alert("Escolha uma opção.");
-        return false;
-    }*/
-    if (tipo.value == " " || tipo.value == "Selecione"){
-        alert("Escolha uma opção.");
+    if(formp.bombeiro.selectedIndex==0 || formp.bombeiro.selectedIndex("Selecione seu nome")){
+        alert("Por favor selecione seu nome");
+        formp.bombeiro.focus();
         return false;
     }
     

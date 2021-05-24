@@ -2,7 +2,7 @@
     <h1>Pré - Testagem</h1>    
     <form id="form" name="formp" onsubmit="return validateForm5()" method="POST" action="controladorDeTelas.php?acao=pretestagem">
         <div>
-            <select name="bombeiro" id="nome" required>
+            <select name="bombeiro" id="nome">
                 <option value="opcao">Selecione seu nome</option>
                 <?php            
                     $reg = $b->listarBombeiro();
@@ -22,9 +22,8 @@
         </div>
         <br>
         <div>
-            <label for="idade">Faixa-etária:</label>
-            <select id="idade" name="idade">
-                <option>Selecione</option>
+            <label for="idade">Selecione a faixa-etária:</label>
+            <select id="idade" name="idade" placeholder="Selecione">
                 <option>18 - 29 anos</option>
                 <option>30 - 39 anos</option>
                 <option>40 - 49 anos</option>
