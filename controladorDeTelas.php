@@ -28,6 +28,7 @@ if (!isset($_SESSION['login'])){
             $b->cadastroBombeiro( $_POST['nome'], $_POST['matricula'], $_POST['email'], md5($_POST['senha']), md5($_POST['re_senha']), $_SESSION['adm']);
         }
         unset($_SESSION['adm']);
+        include ("view/layout/footer.php");
     }// elseif () {} 
     else {
         header("Location: index.php?acao=recusado");
@@ -38,6 +39,7 @@ elseif (isset($_SESSION['adm']) && !isset($_GET['acao']) || (isset($_GET['acao']
     $_SESSION['caminhoCSS'] = 'assets/CSS/painelAdministrativo.css';
     $_SESSION['caminhoDeFundo'] = 'view/painelAdministrativo.php';
     include ("view/layout/fundo.php");
+    include ("view/layout/footer.php");
 }
 elseif (!isset($_SESSION['adm']) && !isset($_GET['acao']) || (isset($_GET['acao']) && $_GET['acao'] == 'tela_usuario')){
     $_SESSION['titulo'] = 'Página do Usuário';
@@ -45,6 +47,7 @@ elseif (!isset($_SESSION['adm']) && !isset($_GET['acao']) || (isset($_GET['acao'
     // específicas nessa tela, deve usar o telaUsuario.css
     $_SESSION['caminhoDeFundo'] = 'view/telaUsuario.php';
     include ("view/layout/fundo.php");
+    include ("view/layout/footer.php");
 }
 else {
     switch($_GET['acao']) {
@@ -65,6 +68,7 @@ else {
                 }
                 unset($_SESSION['adm']);
             }
+            include ("view/layout/footer.php");
         break;
 
         case 'acompanhamento':
@@ -72,6 +76,7 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/acompanhamento.css';
             $_SESSION['caminhoDeFundo'] = 'view/acompanhamento.php';
             include ("view/layout/fundo.php");
+            include ("view/layout/footer.php");
         break;
 
         case 'cadastro_segunda_avaliacao':
@@ -79,10 +84,10 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/cadastroSegundaAvaliacao.css';
             $_SESSION['caminhoDeFundo'] = 'view/cadastroSegundaAvaliacao.php';
             include ("view/layout/fundo.php");
-
             if(isset($_POST['submete_seg'])){
                 $b->cadastroSegundaAvaliacao($_POST['bombeiro_id'], $_POST['data_ava'],$_POST['prevista'], $_POST['sintomas'], $_POST['retorno']);
             }
+            include ("view/layout/footer.php");
         break;
 
         case 'pretestagem':
@@ -90,7 +95,6 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/pretestagem.css';
             $_SESSION['caminhoDeFundo'] = 'view/pretestagem.php';
             include ("view/layout/fundo.php");
-
             if (isset($_POST['submete_pre'])){
                 if (!isset($_POST['vacina']) || $_POST['vacina'] == 'n'){
                     $_POST['vacina'] = NULL;
@@ -99,6 +103,7 @@ else {
                 }   
                 $b->cadastroPretestagem($_POST['data'], $_POST['sintomas'],$_POST['idade'],$_POST['bombeiro'],$_POST['vacina'],$_POST['datap'],$_POST['datas']);
             }
+            include ("view/layout/footer.php");
         break;
 
         case 'resultado':
@@ -106,10 +111,10 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/resultado.css';
             $_SESSION['caminhoDeFundo'] = 'view/resultado.php';
             include ("view/layout/fundo.php");
-
             if (isset($_POST['submetido'])) {
                 $b->cadastroDoResultadoDaTestagem($_POST['teste'], $_POST['data'], $_POST['resultado'], $_POST['bombeiro']);
             }
+            include ("view/layout/footer.php");
         break;
 
         case 're_senha':
@@ -117,6 +122,7 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/recuperaSenha.css';
             $_SESSION['caminhoDeFundo'] = 'view/recuperaSenha.php';
             include ('view/layout/fundo.php');
+            include ("view/layout/footer.php");
         break;
 
         case 'registro_sintomas':
@@ -124,6 +130,7 @@ else {
             $_SESSION['caminhoCSS'] = 'assets/CSS/registroSintomas.css';
             $_SESSION['caminhoDeFundo'] = 'view/registroSintomas.php';
             include ('view/layout/fundo.php');
+            include ("view/layout/footer.php");
         break;
 
         case 'destroy':

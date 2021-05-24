@@ -42,13 +42,4 @@
             <div>
                 <a href="controladorDeTelas.php?acao=destroy"><img title="Encerar esta sessão" src="assets/images/exit.svg" id="exit_img"> </a>
             </div>
-
-        </main>
-        <footer id="rodape">
-            <?php
-                include_once ('view/layout/footer.php');
-            ?>
-        </footer>
-    </body>
-    <script src="assets/JS/function.js"></script>
-</html>
+        </main>            

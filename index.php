@@ -28,11 +28,4 @@
             }
         ?>
     </main>
-    <footer id="rodape">
-        <?php
-            include_once ('view/layout/footer.php');
-        ?>
-    </footer>
-</body>
-<script src="assets/JS/function.js"></script>
-</html>
+    <?php include ("view/layout/footer.php"); ?>
