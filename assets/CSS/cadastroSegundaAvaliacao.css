@@ -8,10 +8,7 @@
     margin: 7px 5px 15px 5px;
     border: 30px;
 }
+#naoR{
+    display: none;
+}
 
-#simR{
-    display: none;
-}
-#naoP{
-    display: none;
-}
