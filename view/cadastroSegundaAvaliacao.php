@@ -20,18 +20,24 @@
             <div id="sim_nao">
                 <p>Retorno aprovado?</p>
                 <label>
-                    <input type="radio" name="retorno" value="1" id="radio">Sim
+                    <input type="radio" name="retorno" value="1" id="radio" onclick="exibirS()">Sim
                 </label>
 
                 <label>
-                    <input type="radio" name="retorno" value="0" id="radio">Não
+                    <input type="radio" name="retorno" value="0" id="radio" onclick="exibirN()">Não
                 </label>
             </div>
             
-            <div>
+            <div id="simR">
                 <p>Data do retorno</p>
                 <input type="date" id="data" name="prevista">
                 
+            </div>
+            <div id="nãoR">
+            <p>Data da reavaliação</p>
+                <input type="date" id="data" name="prevista">
+                <p>Data do possível retorno</p>
+                <input type="date" id="data" name="prevista">
             </div>
         </div>
  

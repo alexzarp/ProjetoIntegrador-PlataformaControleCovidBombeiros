@@ -141,7 +141,7 @@ function validateForm5(){
         alert("Por favor escolha uma opção");
         return false;
     }
-    if(formp.bombeiro.selectedIndex==0 || formS.bombeiro.selectedIndex("Selecione seu nome")){
+    if(formp.bombeiro.selectedIndex==0 || formp.bombeiro.selectedIndex("Selecione seu nome")){
         alert("Por favor selecione seu nome");
         formp.bombeiro.focus();
         return false;
@@ -150,7 +150,7 @@ function validateForm5(){
         alert("Os sintomas devem ser preenchidos");
         return false;
     }
-    if(formp.idade.selectedIndex==0){
+    if(formp.idade.selectedIndex==0 || formp.bombeiro.selectedIndex("Selecione")){
         alert("Selecione a faixa etária");
         formp.idade.focus();
         return false;
@@ -174,6 +174,18 @@ function validateForm5(){
     function ocultar(){
         document.getElementById("ocultar").style.display = "none";
     }
+
+    function exibirS(){
+        document.getElementById("simR").style.display = "block";
+        document.getElementById("naoR").style.display = "none";
+    }
+
+    function exibirN(){
+        document.getElementById("simR").style.display = "nome";
+        document.getElementById("naoR").style.display = "block";
+    }
+
+
 
     
 
