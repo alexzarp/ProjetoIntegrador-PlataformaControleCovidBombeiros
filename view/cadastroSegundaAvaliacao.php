@@ -27,7 +27,6 @@
                     <input type="radio" name="retorno" value="0" id="radio" onclick="exibirN()">Não
                 </label>
             </div>
-            
             <div id="simR">
                 <p>Data do retorno</p>
                 <input type="date" id="data" name="prevista">
