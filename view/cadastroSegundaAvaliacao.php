@@ -33,7 +33,7 @@
                 <input type="date" id="data" name="prevista">
                 
             </div>
-            <div id="nãoR">
+            <div id="naoR">
             <p>Data da reavaliação</p>
                 <input type="date" id="data" name="prevista">
                 <p>Data do possível retorno</p>

@@ -160,7 +160,6 @@ function validateForm5(){
     
 }
 
-    
     function exibir(){
         document.getElementById("ocultar").style.display = "block";
     }
@@ -174,7 +173,7 @@ function validateForm5(){
     }
 
     function exibirN(){
-        document.getElementById("simR").style.display = "nome";
+        document.getElementById("simR").style.display = "none";
         document.getElementById("naoR").style.display = "block";
     }
 

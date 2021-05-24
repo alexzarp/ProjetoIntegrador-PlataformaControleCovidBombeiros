@@ -24,6 +24,7 @@
         <div>
             <label for="idade">Selecione a faixa-etária:</label>
             <select id="idade" name="idade" placeholder="Selecione">
+                <option>Selecione</option>
                 <option>18 - 29 anos</option>
                 <option>30 - 39 anos</option>
                 <option>40 - 49 anos</option>
