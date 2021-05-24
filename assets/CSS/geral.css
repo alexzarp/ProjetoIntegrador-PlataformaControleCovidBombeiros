@@ -25,11 +25,6 @@ input[type=date], textarea, input[type=submit], input[type=reset], input[type=bu
     width: -webkit-fill-available;
 }
 
-/* select:hover {
-    background-color: #C4C4C4;
-    border-radius: 8px;
-} */
-
 input[type=submit] {
     margin-left: 30%;
     margin-right: 30%;
@@ -68,6 +63,27 @@ main {
     margin-left: 20px;
 }
 
+footer {
+    background-color: gray;
+    /* position: absolute; quem faz isso agora é o JS */
+    bottom: 0px;
+    width: 98%; /* ??????? */
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.git {
+    width: 1%;
+    height: 1%;
+}
+
+footer a, footer a:link, footer a:visited {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
 @media (max-width: 700px){
     main{
         display: block;
@@ -85,9 +101,19 @@ main {
         margin-left: 10%;
         margin-right: 10%;
     }
-
-    
-
+    .git {
+        width: 4%;
+        height: 4%;
+    }
+    input[type=text], input[type=email], input[type=password], input[type=tel],
+    input[type=date], textarea, input[type=submit], input[type=reset], input[type=button],select{
+        padding: 10px;
+        margin: 10px 5px 10px 5px;
+    }
+    input[type=submit] {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
 
 

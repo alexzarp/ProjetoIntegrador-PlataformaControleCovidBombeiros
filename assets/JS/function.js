@@ -1,3 +1,17 @@
+function verificaTamanhoPG () {
+    var alturaDaJanela = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
+
+    var alturaDaPagina = document.getElementById("corpo").clientHeight;
+
+    if (alturaDaJanela < alturaDaPagina) {
+        document.getElementById("rodape").style.position = "inherit";
+    } else {
+        document.getElementById("rodape").style.position = "absolute";
+    }
+}
+verificaTamanhoPG();
 
 function validateForm(){
     var nome = document.getElementById("nome").value;
@@ -25,9 +39,6 @@ function validateForm(){
         alert('Senhas Diferentes, digite novamente');
         return false;
     }
-    
-        
-    
 }
 function SomenteNumero(e){
     var tecla=(window.event)?event.keyCode:e.which;   

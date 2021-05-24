@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 
-<body>
+<body id="corpo">
     <main>
         <div></div> <!-- Gambiarra? -->
 
@@ -28,5 +28,11 @@
             }
         ?>
     </main>
+    <footer id="rodape">
+        <?php
+            include_once ('view/layout/footer.php');
+        ?>
+    </footer>
 </body>
+<script src="assets/JS/function.js"></script>
 </html>
