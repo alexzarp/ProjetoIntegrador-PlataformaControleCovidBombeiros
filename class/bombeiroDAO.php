@@ -256,16 +256,18 @@
             }
         }
 
-        public function cadastroSegundaAvaliacao ($fk_id_pretestagem, $dt_teste, $dt_prevista, $comentario, $retorno) {
+        public function cadastroSegundaAvaliacao ($fk_id_pretestagem, $dt_teste, $dt_prevista, $comentario, $dt_real, $dt_nova, $retorno) {
             try {
-                $query = $this->conexao->prepare('INSERT INTO avalia_retorno(fk_id_pretestagem, dt_teste, dt_prevista, comentario) VALUES (:fk_id_pretestagem, :dt_teste, :dt_prevista, :comentario)');
+                $query = $this->conexao->prepare('INSERT INTO avalia_retorno(fk_id_pretestagem, dt_teste, dt_prevista, dt_real, dt_nova, comentario) VALUES
+                                                             (:fk_id_pretestagem, :dt_teste, :dt_prevista, :dt_real, :dt_nova, :comentario)');
                 $query->bindParam(":fk_id_pretestagem", $fk_id_pretestagem);
                 $query->bindParam(":dt_prevista", $dt_prevista);
                 $query->bindParam(":comentario", $comentario);
                 $query->bindParam(":dt_teste", $dt_teste);
+                $query->bindParam(":dt_real", $dt_real);
+                $query->bindParam(":dt_nova", $dt_nova);
                 $query->execute();
                 echo "<strong id='inserido'>Cadastro feito com sucesso!</strong>";
-
                 try {
                     $query = $this->conexao->prepare('SELECT DISTINCT b.nome, b.email, a.dt_prevista, a.comentario FROM
                                                       bombeiro b JOIN pretestagem p ON p.matricula = b.matricula JOIN

@@ -85,7 +85,7 @@ else {
             $_SESSION['caminhoDeFundo'] = 'view/cadastroSegundaAvaliacao.php';
             include ("view/layout/fundo.php");
             if(isset($_POST['submete_seg'])){
-                $b->cadastroSegundaAvaliacao($_POST['bombeiro_id'], $_POST['data_ava'],$_POST['prevista'], $_POST['sintomas'], $_POST['retorno']);
+                $b->cadastroSegundaAvaliacao($_POST['fk_id_pretestagem'], $_POST['dt_teste'],$_POST['dt_prevista'], $_POST['comentario'], $_POST['dt_real'], $_POST['dt_nova'], $_POST['retorno']);
             }
             include ("view/layout/footer.php");
         break;
