@@ -25,6 +25,13 @@ input[type=date], textarea, input[type=submit], input[type=reset], input[type=bu
     width: -webkit-fill-available;
 }
 
+@-moz-document url-prefix() {
+    input[type=text], input[type=email], input[type=password], input[type=tel],
+    input[type=date], textarea, input[type=submit], input[type=reset], input[type=button],select{
+        width: -moz-available;
+    }
+}
+
 input[type=submit] {
     margin-left: 30%;
     margin-right: 30%;
