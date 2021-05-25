@@ -29,7 +29,7 @@
             </div>
             <div id="simR">
                 <p>Data do retorno</p>
-                <input type="date" id="data" name="dt_prevista">
+                <input type="date" id="data1" name="dt_prevista">
                 
             </div>
             <div id="naoR">

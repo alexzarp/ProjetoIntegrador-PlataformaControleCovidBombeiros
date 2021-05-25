@@ -94,7 +94,7 @@ function validateForm3(){
         }
     }
     if(escolhe==-1){
-        alert("Por favor escolha uma opção");
+        alert("Por favor escolha uma opção de retorno");
         return false;
     }
     if (sintomas == null || sintomas == "" || sintomas.indexOf(" ") == -1){
@@ -102,11 +102,12 @@ function validateForm3(){
         return false;
         
     }
-    if(formS.bombeiro_id.selectedIndex==0 || formS.bombeiro.selectedIndex("Nome - Cadastro já deve constar no sistema")){
+    if(formS.fk_id_pretestagem.selectedIndex==0){
         alert("Por favor selecione um nome");
-        formS.bombeiro_id.focus();
+        formS.fk_id_pretestagem.focus();
         return false;
     }
+
 
 
 
